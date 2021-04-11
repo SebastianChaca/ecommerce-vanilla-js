@@ -1,17 +1,46 @@
-.navbar__content {
-  height: 80px;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 120px 200px 200px;
+.nav__container {
+  height: 800px;
+  background-image: url(/Img/banner2.png);
+  padding-top: 0px;
   position: relative;
-  border-bottom: 1px solid #150e56;
+  overflow: hidden;
+}
+.logo__container {
+  height: 200px;
+  width: 250px;
+  margin: 0px auto;
+  /* background-color: #fef4e8; */
+  /* opacity: 0.5; */
+}
+.logo__container img {
+  height: 100%;
+  width: 100%;
+  border-radius: 20px;
+}
+.nav__container::after {
+  content: '';
+  pointer-events: none;
+  background: rgb(255, 255, 255);
+  position: absolute;
+  width: 100%;
+  height: 90px;
+  left: 0px;
+  bottom: -45px;
+  transform: skewY(-3deg);
+}
+.navbar__content {
+  width: 100%;
+  height: 100px;
+  display: grid;
+  grid-template-columns: 120px 200px 200px 200px 200px;
+  position: relative;
   align-items: center;
-  background-color: #150e56;
+  background-color: rgba(255, 255, 255, 0.253);
 }
 
 .navbar__content > img:first-of-type {
-  width: 35px;
-  height: 35px;
+  width: 55px;
+  height: 55px;
   object-fit: cover;
   padding: 10px;
   margin-left: 10px;
@@ -23,7 +52,39 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #f8ede3;
+  color: #fcf8f4;
+  font-size: 25px;
+  position: relative;
+}
+a::before {
+  content: '';
+  height: 30%;
+  width: 1px;
+  position: absolute;
+  right: 0;
+  top: 35px;
+  background-color: #fcf8f494;
+}
+.pseudo {
+  position: relative;
+  display: flex;
+  width: 300px;
+  text-align: center;
+  border-radius: 6px;
+  transition: all 0.4s linear;
+}
+.pseudo::after {
+  content: '';
+  position: absolute;
+  margin: auto;
+  height: 3px;
+  width: 0px;
+  top: 70px;
+  background: #bdd2b6;
+  transition: all 0.4s linear;
+}
+.pseudo:hover::after {
+  width: 50%;
 }
 
 .navbar__content > a:hover {
@@ -36,6 +97,9 @@
   position: absolute;
   right: 0;
   margin-right: 30px;
+  background-color: #fef4e8;
+  border-radius: 45px;
+  padding: 8px;
 }
 .navbar__content > div img {
   width: 90%;
@@ -44,7 +108,12 @@
 .navbar__content > div img:hover {
   opacity: 0.6;
 }
-
+.banner {
+  width: 100%;
+}
+.banner img {
+  width: 100%;
+}
 h3 {
   text-align: center;
   font-size: 25px;
@@ -54,12 +123,21 @@ h3 {
 a {
   text-decoration: none;
 }
+.main__title {
+  text-align: center;
+  margin-top: 50px;
+}
+.main__title hr {
+  width: 200px;
+  height: 5px;
+  background-color: #970747;
+}
 .titulo {
   display: grid;
   grid-template-columns: repeat(4, 23%);
   gap: 15px;
   width: 100%;
-  margin: 0 auto;
+  margin-top: 70px;
   justify-content: center;
 }
 .titulo h2 {
@@ -130,7 +208,7 @@ button {
   border-bottom-left-radius: 10px;
 }
 .buy-1 {
-  background-color: #3c415c;
+  background-color: #970747;
 }
 
 .btn__container img {
