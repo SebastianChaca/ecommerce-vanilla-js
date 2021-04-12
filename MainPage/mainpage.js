@@ -30,10 +30,11 @@ function filterArray(products, type) {
     const newArray = products.filter((product) => {
       return product.descuento === true;
     });
-    console.log(newArray);
+    
     return newArray;
   } else if (type === 'novedad') {
     const newArray = products.filter((product) => product.novedad === true);
+    console.log('novedad' + newArray)
     return newArray;
   } else {
     const newArray = products.filter((product) => product.categoria === type);
@@ -41,11 +42,12 @@ function filterArray(products, type) {
   }
 }
 function showMore(){
-  let show=document.getElementById('showMore')
-    if (show.style.display === 'none'){
-      show.style.display='block'
+  
+  let show=document.getElementById('show')
+    if (show.className=== 'showNone'){
+      show.className='showMore'
     }else{
-      show.style.display='none'
+      show.className='showNone'
     }
   
 }
@@ -62,11 +64,11 @@ function createProduct(products, id, titleContent) {
   title.innerHTML = `
   <h2>${titleContent}</h2>
   `;
-const slicedProduct = products.slice(0, 4);
+ 
   let seeMoreBtn = document.createElement('div');
   seeMoreBtn.className = 'btn__container';
   let btnMore = document.createElement('button');
-  btnMore.onclick=
+  btnMore.onclick=()=>{ showMore()}
   btnMore.innerHTML = `
   <h4>Mostrar más...</h4>
   <img src="/Img/arrowDown.png" alt="" />
@@ -74,10 +76,11 @@ const slicedProduct = products.slice(0, 4);
   seeMoreBtn.appendChild(btnMore);
 
   
-  slicedProduct.forEach((product) => {
+  products.forEach((product, index) => {
     const priceDiscount = product.price * 0.8;
     let divContainer = document.createElement('div');
-    divContainer.className = 'content';
+    divContainer.className = `${index >3 ? 'content showNone':'content'}`;
+    divContainer.id=`${index >3 ? 'show':''}`;
     divContainer.innerHTML = `
     <img src=${product.image[0].url} />
     <h3>${product.title}</h3>
@@ -115,7 +118,7 @@ function createSections(r) {
     'product_discount',
     'Productos en descuento'
   ),
-    createProduct(filterArray(r, 'novedad'), 'product_novedad', 'Novedades');
+  createProduct(filterArray(r, 'novedad'), 'product_novedad', 'Novedades');
   createProduct(filterArray(r, 'Whisky'), 'product_category', 'Whikys');
   createProduct(filterArray(r, 'Puro'), 'product_puros', 'Puros');
 }

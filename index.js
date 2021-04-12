@@ -1,7 +1,8 @@
 
 async function getAnswer(){
   setBtn('Chequeando respuesta...')
-  const response = await fetch('http://localhost:1337/products/6073e670c8f1670d707b605b');
+  const response = await fetch('http://localhost:1337/answers/607410055a0a2f4370d1003b');
+ 
   return response.json();
 }
 function setBtn(text){
@@ -10,7 +11,7 @@ function setBtn(text){
 }
 function checkAnswer(r, password){
   
-  if (password ===r.shortDescription ){
+  if (password ===r.Answer){
     window.location.href="mainpage.html"
 }else{
   setBtn('Respuesta incorrecta')
