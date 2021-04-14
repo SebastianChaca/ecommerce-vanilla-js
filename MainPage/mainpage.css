@@ -1,6 +1,7 @@
 .nav__container {
   height: 800px;
-  background-image: url(/Img/banner2.png);
+  /* background-image: url(/Img/banner2.png); */
+  background-image: url(/Img/wallpapper.jpg);
   padding-top: 0px;
   position: relative; 
   
@@ -90,9 +91,9 @@ a::before {
   color: #d4dad2;
 }
 
-.navbar__content > div {
-  width: 55px;
-  height: 55px;
+.nav_btn {
+  width: 75px;
+  height: 75px;
   position: absolute;
   right: 0;
   margin-right: 30px;
@@ -100,14 +101,27 @@ a::before {
   border-radius: 45px;
   padding: 8px;
   opacity: 0.7;
+  border: none;
+  cursor: pointer;
   
 }
-.navbar__content > div img {
-  width: 90%;
-  height: 90%;
+
+.nav_btn img {
+  width: 75%;
+  height: 75%;
+  margin: 5px 5px 0 0;
+  
 }
-.navbar__content > div img:hover {
+.nav_btn img:hover {
   opacity: 0.6;
+}
+.cart_quantity p{
+  color: black;
+  font-size: 18px;
+  position: absolute;
+  top:-10px;
+  left:42px;
+  bottom:;
 }
 .banner {
   width: 100%;
@@ -366,7 +380,7 @@ p {
 }
 .hamburger img{
   
-  width: 40px;
+  width: 55px;
   height: 40px;
   margin-left: 15px;
 }
@@ -410,7 +424,7 @@ p {
 }
 @media (max-width: 800px) {
   .nav__container{
-    height: 200px;
+    height: 300px;
   }
   .navbar__content > a{
     display:none
@@ -418,7 +432,7 @@ p {
   .navbar__content > img:first-of-type {
     display: none;
   }
-  .hamburger img{
+  .hamburger {
     display: block;
   }
   .gallery {
