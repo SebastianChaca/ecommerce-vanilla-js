@@ -1,10 +1,29 @@
+function addToCart(id){
+  const storage=JSON.parse(localStorage.getItem('productos-api'))
+  const product= storage.find(p => p.id=== id)
+  const cartStorage= localStorage.getItem('cart')? JSON.parse(localStorage.getItem('cart')): []
+  cartStorage.push(product)
+  localStorage.setItem('cart', JSON.stringify(cartStorage)) 
+  
+  let cartQuantityElement=document.getElementById('cart_quantity')
+  cartQuantityElement.innerHTML=`${cartStorage.length}`
 
+
+  let alertContainer=document.getElementById('alert')
+  alertContainer.style.display='flex'
+  let alertMsg=document.getElementById('alert_msg')
+  alertMsg.innerHTML=`${product.title} agregado al carrito`
+  setTimeout(()=>{
+    alertContainer.style.display='none'
+  },3000)
+  
+}
 
 function createCard(product, gallery){
+   
   let divContainer = document.createElement('div');
   divContainer.className = 'content';    
-  divContainer.innerHTML = `
-  
+  divContainer.innerHTML = `  
   <img src=${product.image[0].url} />
   <h3>${product.title}</h3>
   <p>${product.shortDescription}</p>
@@ -21,7 +40,7 @@ function createCard(product, gallery){
     }</h6>
   </div>
   <div class="btns__card">
-    <button class="btn__cart">
+    <button class="btn__cart" onclick={addToCart('${product.id}')}>
       <img src="/Img/miniShopIcon.png" alt="" /> <p>AGREGAR</p> 
     </button>
     <button class="btn__detail">
@@ -29,7 +48,9 @@ function createCard(product, gallery){
     </button>
   </div>
   `; 
+  
   gallery.appendChild(divContainer);
+  
   
 }
 function loadingStart() {
@@ -45,10 +66,11 @@ function handleError(){
   error.className='error'
 }
 async function getProducts() {
+  localStorage.removeItem('productos-api') 
   loadingStart();
   try {
     const response = await fetch('http://localhost:1337/products');
-   
+    
     return response.json();
   } catch (error) {
     loadingFinish();
@@ -125,12 +147,9 @@ function createProduct(products, id,titleContent) {
   <img id=${imgId} src="/Img/arrowDown.png" alt="" />
   `;
   seeMoreBtn.appendChild(btnMore);
-
   
   products.slice(0,4).forEach((product) => {   
-    createCard(product, card, id)
-    
-    
+    createCard(product, card, id)    
   });
   cardContainer.appendChild(title);
   cardContainer.appendChild(card);
@@ -138,6 +157,7 @@ function createProduct(products, id,titleContent) {
   container.appendChild(cardContainer);
 }
 function createSections(r) {
+  localStorage.setItem('productos-api', JSON.stringify(r))
   loadingFinish();
   createProduct(
     filterArray(r, 'descuento'),
@@ -149,6 +169,12 @@ function createSections(r) {
   createProduct(filterArray(r, 'Puro'), 'product__puros','Puros');
 }
 
+function getCartQuantity(){
+  const cartStorage= localStorage.getItem('cart')? JSON.parse(localStorage.getItem('cart')): []
+  let cartQuantityElement=document.getElementById('cart_quantity')
+  cartQuantityElement.innerHTML=`${cartStorage.length}`
+}
+document.addEventListener('DOMContentLoaded', getCartQuantity())
 getProducts().then((r) => createSections(r));
 
 

@@ -115,13 +115,13 @@ a::before {
 .nav_btn img:hover {
   opacity: 0.6;
 }
-.cart_quantity p{
+.cart_quantity_container p{
   color: black;
   font-size: 18px;
   position: absolute;
   top:-10px;
   left:42px;
-  bottom:;
+ 
 }
 .banner {
   width: 100%;
@@ -384,6 +384,32 @@ p {
   height: 40px;
   margin-left: 15px;
 }
+
+.alert{
+  display: none;
+  background-color:  #c5fac5;
+  width: 400px;
+  height: 65px;
+  
+  justify-content: left ;
+  align-items: center;
+  border-radius: 3px;
+  margin: 5px auto;
+  position: fixed;
+  z-index: 101;
+  top: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 5px 8px rgba(183, 185, 192, 0.3);
+  animation: fadeIn 0.3s
+}
+.alert img{
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  margin-left: 20px;
+}
+
 
 @media (max-width: 1100px) {
   .btns__card {

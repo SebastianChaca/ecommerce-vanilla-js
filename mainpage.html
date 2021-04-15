@@ -29,8 +29,8 @@
           <a class="pseudo" href="#main__title"> Productos</a>
           
             <button class='nav_btn'>
-              <div class='cart_quantity'> 
-                <p>0</p>
+              <div class='cart_quantity_container'> 
+                <p id='cart_quantity'>0</p>
               </div>
               <img  src="./Img/cart.png" alt="" /> 
             </button>           
@@ -48,8 +48,12 @@
       <div class="noError" id="error">
         <h1>Se Produjo un error, intenalo de nuevo.</h1>
       </div>
+      <div class='alert' id='alert'>
+        <img src="/Img/markIcon.png" alt="markicon">
+        <p id='alert_msg'></p>
+      </div>
       <footer class="footer__content"></footer>
     </div>
+    <script src="./MainPage/mainpage.js"></script>
   </body>
-  <script src="./MainPage/mainpage.js"></script>
 </html>
