@@ -1,0 +1,58 @@
+
+
+.table_container{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.table{
+  width: 800px;
+  height: 100%;
+  background-color: #fcf8f4;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  border-spacing:0 ;
+  border-radius: 5px;
+}
+.table thead{
+  background-color: rgb(194, 203, 233);
+}
+.table th{
+  padding: 20px;
+}
+.table td{
+ text-align: center;
+ padding: 10px;
+}
+
+.icons_container{
+  display: flex;
+  width: 110px;
+  padding: 10px;
+  
+}
+.icons_container button {
+  border: none;
+  cursor: pointer;
+  margin-right: 10px;
+  width: 70px;
+  padding: 5px;
+  border-radius: 5px;
+}
+.icons_container button:hover {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+.icons_container button img{
+  width: 15px;  
+  padding: 5px;  
+}
+#edit{
+  background-color: rgb(106, 212, 106);
+}
+#delete{
+  background-color: rgb(241, 58, 58);
+}
+.greyRow{
+  background-color: #e9e5e5;
+}
