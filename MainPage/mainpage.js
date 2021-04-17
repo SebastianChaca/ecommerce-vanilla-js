@@ -24,7 +24,7 @@ function createCard(product, gallery){
   let divContainer = document.createElement('div');
   divContainer.className = 'content';    
   divContainer.innerHTML = `  
-  <img src=${product.image[0].url} />
+  <img src=${product.image ? product.image.url : '/Img/notfound.png'} />
   <h3>${product.title}</h3>
   <p>${product.shortDescription}</p>
   <div class='star__container'>
@@ -96,8 +96,7 @@ function filterArray(products, type) {
   }
 }
 let open=false
-function showMore(products, card, id){
-  
+function showMore(products, card, id){  
  
   if (!open){
     let titleContainer= document.getElementById('mostrarMas__Title')

@@ -1,0 +1,163 @@
+.sidebar{
+  height: 100vh;
+  
+}
+.form_container{
+  width: 600px;
+  margin: 0 auto;
+ 
+  
+}
+.title{
+  text-align: center;
+}
+.form_container form {
+  display: flex;
+  flex-direction: column;  
+  width: 100%;
+  margin: 0;
+  background-color: #fcf8f4;
+  padding: 30px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+.form_container label{
+  margin: 10px 0 10px 5px;
+}
+.form_container input{
+  border: none;
+  height: 35px;
+  border-radius: 5px;
+  background-color: #fdf5f5;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  margin: 0;
+  padding-left: 10px;
+}
+.form_container textarea{
+  border: none;
+  
+  border-radius: 5px;
+  background-color: #fdf5f5;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  margin: 0;
+  padding-left: 10px;
+}
+.form_container button{
+  border: none;
+  height: 40px;
+  margin-top: 10px;
+  width: 100%;
+  color: #fcf8f4;
+  background-color: #0b3168;
+  border-radius: 5px;
+  font-weight: 500;
+  font-size: 20px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+.form_container button:hover{
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
+}
+.nombrePrecio{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+.nombrePrecio input{
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 250px;
+}
+.nombrePrecio label{
+  margin-left: 5px;
+ 
+}
+.stockRate{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+.stockRate input{
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 220px;
+}
+.stockRate label{
+  margin-left: 5px;
+  margin-right: 15px;
+ 
+}
+
+.categoriaCheckbox{
+  display: flex;
+  margin-bottom: 10px;
+}
+.categoriaCheckbox label{
+  margin-right: 10px;
+}
+.categoriaCheckbox input {
+  width: 195px;
+}
+.checkbox {
+  display: flex;
+  margin:0;
+}
+.checkbox label{
+  margin-left: 18px;
+  margin-right: 10px;
+}
+.checkbox input{
+  width: 20px;
+  box-shadow: none !important;
+  margin-right: 10px;
+  margin-left: 10px;
+  
+}
+.image{
+  display: flex;
+  width: 100%;
+}
+.image input{
+  opacity: 0;
+  width: 0.1px;
+  height: 0.1px;
+  position: absolute;
+}
+.image label{
+  padding: 15px;
+  margin: 20px 0;
+  border-radius: 10px;
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
+  color: aliceblue;
+  background-color: #0b3168;
+}
+
+#btn img{
+  width: 20px;
+  margin-top: 5px;
+}
+
+.alert{
+  display:none;
+  background-color:  #c5fac5;
+  width: 400px;
+  height: 65px;  
+  justify-content: left ;
+  align-items: center;
+  border-radius: 3px;
+  margin: 5px auto;
+  position: fixed;
+  z-index: 101;
+  
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: 0 5px 8px rgba(183, 185, 192, 0.3);
+  animation: fadeIn 0.3s;
+  margin-bottom: 20px;
+}
+.alert img{
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  margin-left: 20px;
+}

@@ -33,35 +33,31 @@ async function getProducts() {
 
 
 
-// let formElement=document.getElementById('form')
-
-
-// let nombre=document.getElementById('nombre')
-// let precio=document.getElementById('precio')
-// let descripcion=document.getElementById('descripcion')
-// let stock=document.getElementById('stock')
-// let categoria=document.getElementById('categoria')
-// let shorDescription=document.getElementById('descritpionCorta')
-// let descuento=document.getElementById('descuento')
-// let novedad=document.getElementById('novedad')
-// let rate=document.getElementById('rate')
-
-// novedad.value=false
-// descuento.value=false
-
-// novedad.addEventListener('click',()=>{
-//  novedad.checked ? novedad.value = true : novedad.value=false
- 
-// })
-// descuento.addEventListener('click',()=>{
-//   descuento.checked ? descuento.value = true :descuento.value=false 
-//  })
-
-
 
 // const storage= localStorage.getItem('productos-api') ? JSON.parse(localStorage.getItem('productos-api')) : []
 function handleEdit(id){
   console.log(id)
+}
+function handleDelete(id){
+  console.log(id)
+  let noBtn=document.querySelector('.noBtn')
+  let modal = document.getElementById("myModal");
+  let btn = document.getElementById("delete");
+  let span = document.getElementsByClassName("close")[0];
+  btn.onclick = function() {
+    modal.style.display = "block";
+  }
+  noBtn.onclick=function() {
+    modal.style.display = "none";
+    }
+  span.onclick = function() {
+  modal.style.display = "none";
+  }
+  window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
 }
 function renderTable(productos){
   loadingFinish();
@@ -84,7 +80,7 @@ function renderTable(productos){
     <td> 
       <div class='icons_container'>
         <button onclick={handleEdit('${producto.id}')} id='edit'><img src='img/dashboard/editIcon.png' ></button>
-        <button id='delete'><img src='img/dashboard/deleteIcon.png' ></button>        
+        <button onclick={handleDelete('${producto.id}')}  id='delete'><img src='img/dashboard/deleteIcon.png' ></button>        
       </div>    
     </td>
     
@@ -94,35 +90,6 @@ function renderTable(productos){
 }
 getProducts().then(r=> renderTable(r))
 
-// document.querySelector('#form').addEventListener('submit', (e)=>{
-//   e.preventDefault()
-//   const producto={
-//     nombre: nombre.value,
-//     precio: precio.value,
-//     descripcion: descripcion.value,
-//     stock: stock.value,
-//     rate: rate.value,
-//     categoria: categoria.value,
-//     descripcionCorta: shorDescription.value,
-//     novedad: novedad.value,
-//     descuento: descuento.value
-//   }
-  
-//   storage.push(producto)
-//   localStorage.setItem('productos', JSON.stringify(storage))
-//   nombre.value=''
-//   precio.value=''
-//   descripcion.value=''
-//   stock.value=''
-//   rate.value=''
-//   categoria.value=''
-//   shorDescription.value=''
-//   novedad.value=''
-//   descuento.value=''
-  
-  
-//   renderTable([producto])
-  
-// })
+
 
 

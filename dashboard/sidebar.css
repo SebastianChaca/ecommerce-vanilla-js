@@ -5,15 +5,16 @@
 
 .sidebar {
   background-color: #282c44;  
-  width: 200px;
+  width: 250px;
   margin: 0;
   color:#fffefe ;
   text-align: left;
+  padding: 15px 0 0 5px;
 }
 .sidebar h5{
   margin-top: 0 ;
-  margin-left: 20px;
-  padding-top: 10px;
+  margin-left: 30px;
+  padding-top: 20px;
   color: #c4b9b9ab;
   font-weight: 500;
 }
@@ -21,11 +22,11 @@
   margin: 0;
   padding-top: 20px;
   padding-bottom: 10px;
-  margin-left: 20px;
+  margin-left: 30px;
 }
 .sidebar ul{
   text-align: left;
-  padding-left: 20px;
+  padding-left: 30px;
   
 }
 .sidebar ul li{
@@ -51,8 +52,10 @@
 
 .loading {
   width: 100%;
-  text-align: center;
-  margin-top:50px ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
 }
 .loading h1 {
   margin-bottom: 30px;
