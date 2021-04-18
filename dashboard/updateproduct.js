@@ -100,17 +100,17 @@ document.querySelector('#form').addEventListener('submit', (e)=>{
   
  
   updateProduct(producto).then(()=>{
-    nombre.value=''
-    precio.value=''
-    descripcion.value=''
-    stock.value=''
-    rate.value=''
-    categoria.value=''
-    shortDescription.value=''
-    novedad.value=''
-    descuento.value=''
-    novedad.checked=false
-    descuento.checked=false
+    // nombre.value=''
+    // precio.value=''
+    // descripcion.value=''
+    // stock.value=''
+    // rate.value=''
+    // categoria.value=''
+    // shortDescription.value=''
+    // novedad.value=''
+    // descuento.value=''
+    // novedad.checked=false
+    // descuento.checked=false
     alert()
   })
  

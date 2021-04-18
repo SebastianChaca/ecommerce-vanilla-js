@@ -1,15 +1,9 @@
 
 
-.table_container{
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  margin-top: 30px;
-  margin-bottom: 50px;
+.table_container{  
+  margin: 30px auto; 
 }
-.table{
-  width: 800px;
-  height: 100%;
+.table{  
   background-color: #fcf8f4;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   border-spacing:0 ;

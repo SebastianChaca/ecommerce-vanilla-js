@@ -5,7 +5,7 @@
 
 .sidebar {
   background-color: #282c44;  
-  width: 250px;
+  min-width: 250px;
   margin: 0;
   color:#fffefe ;
   text-align: left;
