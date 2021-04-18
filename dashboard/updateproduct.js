@@ -1,11 +1,12 @@
 function alert(){  
   let alertContainer=document.getElementById('alert')
-  alertContainer.style.display='flex'  
+  
+  alertContainer.style.display='flex'
   let alertMsg=document.getElementById('alert_msg')
-  alertMsg.innerHTML=`Producto creado`
+  alertMsg.innerHTML=`Producto editado`
   setTimeout(()=>{
-    alertContainer.style.display='none'   
-
+    alertContainer.style.display='none'
+    
   },3000)
 }
 
@@ -28,11 +29,12 @@ function stopLoading(){
   btnElement.style.backgroundColor='rgb(11,49,104)'
 }
 
-async function createProduct(data){
+async function updateProduct(data){
   starLoading()
+  
  try {
-  const response = await fetch('http://localhost:1337/products',{
-    method: 'POST',
+  const response = await fetch(`http://localhost:1337/products/${selectedId}`,{
+    method: 'PUT',
     headers: {
       'Content-Type': 'application/json'
     
@@ -47,25 +49,39 @@ async function createProduct(data){
  }
 }
 
+
+const productosStorage= JSON.parse(localStorage.getItem('productos-api'))
+const selectedId=JSON.parse(localStorage.getItem('current-id'))
+const selectedProduct= productosStorage.find( producto => producto.id === selectedId)
+
 let nombre=document.getElementById('nombre')
+nombre.value=selectedProduct.title
 let precio=document.getElementById('precio')
+precio.value=selectedProduct.price
 let descripcion=document.getElementById('descripcion')
+descripcion.value=selectedProduct.description
 let stock=document.getElementById('stock')
+stock.value=selectedProduct.stock
 let categoria=document.getElementById('categoria')
-let shorDescription=document.getElementById('descritpionCorta')
+categoria.value=selectedProduct.categoria
+let shortDescription=document.getElementById('descritpionCorta')
+shortDescription.value=selectedProduct.shortDescription
 let descuento=document.getElementById('descuento')
+descuento.checked=selectedProduct.descuento
 let novedad=document.getElementById('novedad')
+novedad.checked=selectedProduct.novedad
 let rate=document.getElementById('rate')
-let image=document.getElementById('file')
-novedad.value=false
-descuento.value=false
+rate.value=selectedProduct.rate
+
+novedad.value=selectedProduct.novedad
+descuento.value=selectedProduct.descuento
 
 novedad.addEventListener('click',()=>{
  novedad.checked ? novedad.value = true : novedad.value=false
  
 })
 descuento.addEventListener('click',()=>{
-  descuento.checked ? descuento.value = true :descuento.value=false 
+  descuento.checked ? descuento.value = true : descuento.value=false 
 })
 
 document.querySelector('#form').addEventListener('submit', (e)=>{
@@ -78,18 +94,19 @@ document.querySelector('#form').addEventListener('submit', (e)=>{
     stock: stock.value,
     rate: rate.value,
     categoria: categoria.value,
-    shortDescrition: shorDescription.value,
+    shortDescrition: shortDescription.value,
     novedad: novedad.value,
     descuento: descuento.value,}
-    
-  createProduct(producto).then(()=>{
+  
+ 
+  updateProduct(producto).then(()=>{
     nombre.value=''
     precio.value=''
     descripcion.value=''
     stock.value=''
     rate.value=''
     categoria.value=''
-    shorDescription.value=''
+    shortDescription.value=''
     novedad.value=''
     descuento.value=''
     novedad.checked=false

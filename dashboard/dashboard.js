@@ -14,10 +14,7 @@ function loadingFinish() {
   tableContainer.style.display='flex'
   loading.className = 'noLoading';
 }
-function handleError(){
-  let error=document.getElementById('error')
-  error.className='error'
-}
+
 async function getProducts() {
   localStorage.removeItem('productos-api') 
   loadingStart();
@@ -25,39 +22,50 @@ async function getProducts() {
     const response = await fetch('http://localhost:1337/products');    
     return response.json();
   } catch (error) {
-    
-    handleError()
+    console.log(error)    
     return error;
   }
 }
 
-
-
-
-// const storage= localStorage.getItem('productos-api') ? JSON.parse(localStorage.getItem('productos-api')) : []
 function handleEdit(id){
-  console.log(id)
+  localStorage.setItem('current-id', JSON.stringify(id))
+  window.location.href="dashboard/updateproduct.html"
 }
-function handleDelete(id){
-  console.log(id)
-  let noBtn=document.querySelector('.noBtn')
-  let modal = document.getElementById("myModal");
-  let btn = document.getElementById("delete");
-  let span = document.getElementsByClassName("close")[0];
-  btn.onclick = function() {
-    modal.style.display = "block";
-  }
-  noBtn.onclick=function() {
-    modal.style.display = "none";
-    }
-  span.onclick = function() {
-  modal.style.display = "none";
-  }
-  window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
+
+function openModal(id){
+  localStorage.removeItem('current-id')
+  localStorage.setItem('current-id', JSON.stringify(id))
+  let backModal=document.getElementById("myModal")
+  backModal.style.display='block'
+}
+function closeModal(){
+  localStorage.removeItem('current-id')
+  const backModal=document.getElementById("myModal")
+  backModal.style.display='none'
+  
+}
+async function deleteProduct(id){  
+  localStorage.removeItem('productos-api')
+  loadingStart()  
+  try {
+    const response = await fetch(`http://localhost:1337/products/${id}`,{
+      method:'DELETE'
+    });    
+    return response.json();
+  } catch (error) {
+    console.log(error)    
+    return error;
   }
 }
+function handleDelete(){
+  const id= JSON.parse(localStorage.getItem('current-id')) 
+  localStorage.removeItem('productos-api')
+  deleteProduct(id).then( ()=> {
+    let tbodyElement=document.getElementById('tbody')
+    tbodyElement.innerHTML=''
+    // loadingFinish()
+    // let trElement=document.getElementById(r.id).remove()
+  }).then(()=>getProducts()).then(r=> renderTable(r))
 }
 function renderTable(productos){
   loadingFinish();
@@ -68,6 +76,7 @@ function renderTable(productos){
     
     let trElement=document.createElement('tr')
     index %2 === 1 ? trElement.className='greyRow' : trElement.className=''
+    trElement.id=producto.id
     trElement.innerHTML=`
     <th scope="row">${index +1}</th>
     <td >${producto.title}</td>
@@ -79,8 +88,8 @@ function renderTable(productos){
     <td>${producto.descuento}</td>
     <td> 
       <div class='icons_container'>
-        <button onclick={handleEdit('${producto.id}')} id='edit'><img src='img/dashboard/editIcon.png' ></button>
-        <button onclick={handleDelete('${producto.id}')}  id='delete'><img src='img/dashboard/deleteIcon.png' ></button>        
+        <button onclick={handleEdit('${producto.id}')} class='edit'><img src='img/dashboard/editIcon.png' ></button>
+        <button onclick={openModal('${producto.id}')}  class='delete'><img src='img/dashboard/deleteIcon.png' ></button>        
       </div>    
     </td>
     
@@ -89,6 +98,11 @@ function renderTable(productos){
   });
 }
 getProducts().then(r=> renderTable(r))
+const closeBtn=document.querySelector('.close').onclick=()=>closeModal()
+const noBtn=document.getElementById('noBtn').onclick=()=>closeModal()
+const myModal=document.getElementById('myModal').onclick=()=>closeModal()
+const deleteBtn=document.getElementById('siBtn').onclick=()=>handleDelete()
+const span = document.getElementsByClassName("close")[0].onclick=()=>closeModal()
 
 
 

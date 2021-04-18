@@ -47,10 +47,10 @@
   width: 15px;  
   padding: 5px;  
 }
-#edit{
+.edit{
   background-color: rgb(106, 212, 106);
 }
-#delete{
+.delete{
   background-color: rgb(241, 58, 58);
 }
 .greyRow{
@@ -69,6 +69,7 @@
   overflow: auto; 
   background-color: rgb(0,0,0); 
   background-color: rgba(0,0,0,0.4); 
+ 
 }
 
 /* Modal Content */
@@ -80,6 +81,7 @@
   border: 1px solid #888;
   width: 20%;
   border-radius: 10px;
+  
 }
 .modal-content hr{
   width: 85%;
@@ -100,10 +102,10 @@
 .modal-content button:hover{
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
 }
-.siBtn{
+#siBtn{
   background-color:rgb(241, 58, 58) ;
 }
-.noBtn{
+#noBtn{
   color: #000 !important;
 }
 /* The Close Button */
