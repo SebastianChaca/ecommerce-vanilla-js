@@ -80,7 +80,9 @@ document.querySelector('#form').addEventListener('submit', (e)=>{
     categoria: categoria.value,
     shortDescrition: shorDescription.value,
     novedad: novedad.value,
-    descuento: descuento.value,}
+    descuento: descuento.value,
+   
+  }
     
   createProduct(producto).then(()=>{
     nombre.value=''

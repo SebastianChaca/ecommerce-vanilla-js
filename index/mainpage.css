@@ -92,8 +92,8 @@ a::before {
 }
 
 .nav_btn {
-  width: 75px;
-  height: 75px;
+  width: 65px;
+  height: 65px;
   position: absolute;
   right: 0;
   margin-right: 30px;
@@ -117,10 +117,10 @@ a::before {
 }
 .cart_quantity_container p{
   color: black;
-  font-size: 18px;
+  font-size: 15px;
   position: absolute;
-  top:-10px;
-  left:42px;
+  top:-8px;
+  left:35px;
  
 }
 .banner {

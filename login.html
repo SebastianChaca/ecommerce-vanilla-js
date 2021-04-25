@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,100;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/global_style.css" />
+    <link rel="stylesheet" href="./login/login.css">
+    <link rel="stylesheet" href="./styles/navbarShort.css">
+  <title>Log-in</title>
+</head>
+<body>
+  <div class="container">
+      
+    <div class="nav__container">
+      <nav class="navbar__content">
+        <img src="/Img/cigars.png" alt="cigars" />
+        <button class='hamburger'>
+          <img  src='/Img/hamburger3.png' alt='hamburger'>
+        </button>
+        <a class="pseudo" href="">Ingresar</a>
+        <a class="pseudo" href="">Registrarse</a>
+        <a class="pseudo" href="#main__title"> Productos</a>
+        
+          <button class='nav_btn'>
+            <div class='cart_quantity_container'> 
+              <p id='cart_quantity'>0</p>
+            </div>
+            <img  src="./Img/cart.png" alt="" /> 
+          </button>           
+        
+      </nav>
+    </div>
+  <div class="container__login">
+    <h1>Login</h1>
+  <form >
+    <p class='error_msg' id='e-mail'>Esto es un error</p>
+    <input type="text" placeholder="e-mail" class="field" id='email'>
+    <p class='error_msg' id='password'>Esto es un error</p>
+    <input type="password" placeholder="password" class="field" id='password'>
+    <input type="submit" value="login" class="btn">
+  </form>
+  <div class="pass-link">
+    <a href="#" >Registrate</a>
+  </div>	
+</div>
+</body>
+</html>
