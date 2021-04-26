@@ -1,8 +1,10 @@
+let logOutBtn=document.getElementById('logoutBtn')
+let userName=document.getElementById('username')
 function getUser(){
-  let userName=document.getElementById('username')
+  logOutBtn.style.display='block'
   const usernameStorage= localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')): ''
   userName.innerHTML=`Bienvenido ${usernameStorage.username}`
-  
+
 }
 
 function addToCart(id){
@@ -181,6 +183,11 @@ function getCartQuantity(){
   cartQuantityElement.innerHTML=`${cartStorage.length}`
 }
 document.addEventListener('DOMContentLoaded', getCartQuantity())
+logOutBtn.addEventListener('click', ()=>{
+  localStorage.removeItem('user')
+  logOutBtn.style.display='none'
+  userName.style.display='none'
+})
 getProducts().then((r) => createSections(r), getUser());
 
 

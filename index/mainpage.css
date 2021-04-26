@@ -395,8 +395,7 @@ p {
   display: none;
   background-color:  #c5fac5;
   width: 400px;
-  height: 65px;
-  
+  height: 65px;  
   justify-content: left ;
   align-items: center;
   border-radius: 3px;
@@ -416,6 +415,19 @@ p {
   margin-left: 20px;
 }
 
+.logout_btn{
+  display: none;
+  border: none;
+  background-color: transparent;
+  color:  #fffefe;
+  font-size: 25px;
+  font-weight: 500;
+  margin-left: 20px;
+  cursor: pointer;
+}
+.logout_btn:hover{
+  color: #d4dad2;
+}
 
 @media (max-width: 1100px) {
   .btns__card {
