@@ -1,5 +1,5 @@
 .container__login{
-  margin: 20px auto ;
+  margin: 10px auto ;
   
   padding: 10px;
   width: 300px;
@@ -12,7 +12,7 @@
    width: 70%;
   color: rgb(79, 79, 79);
   font-size: 32px;
-  margin: 28px auto;
+  margin: 30px auto;
   margin-bottom: 20px;
   text-align: center;
  
@@ -45,6 +45,14 @@ form .btn{
   color: #fff;
   line-height: 25px;
   cursor: pointer;
+  padding: 12px 0;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  border-radius: 3px;
+  border: 2px solid transparent;
+  text-align: center;
+  width: 90%;
+  font-size: 16px;
   
 }
 form .btn:disabled
@@ -78,3 +86,15 @@ form .btn:active {
   visibility: hidden;
 }
 
+.arrow_container{
+  margin: 15px 0 0 20px;
+  }
+.arrow_container img{
+  width: 30px;
+  height: 30px;
+  margin: 0;
+}
+#submitBtn img{
+  width: 20px;
+  margin-top: 5px;
+}

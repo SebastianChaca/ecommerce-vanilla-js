@@ -1,3 +1,10 @@
+function getUser(){
+  let userName=document.getElementById('username')
+  const usernameStorage= localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')): ''
+  userName.innerHTML=`Bienvenido ${usernameStorage.username}`
+  
+}
+
 function addToCart(id){
   const storage=JSON.parse(localStorage.getItem('productos-api'))
   const product= storage.find(p => p.id=== id)
@@ -174,7 +181,7 @@ function getCartQuantity(){
   cartQuantityElement.innerHTML=`${cartStorage.length}`
 }
 document.addEventListener('DOMContentLoaded', getCartQuantity())
-getProducts().then((r) => createSections(r));
+getProducts().then((r) => createSections(r), getUser());
 
 
 

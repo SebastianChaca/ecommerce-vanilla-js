@@ -14,39 +14,28 @@
   <title>Log-in</title>
 </head>
 <body>
-  <div class="container">
-      
-    <div class="nav__container">
-      <nav class="navbar__content">
-        <img src="/Img/cigars.png" alt="cigars" />
-        <button class='hamburger'>
-          <img  src='/Img/hamburger3.png' alt='hamburger'>
-        </button>
-        <a class="pseudo" href="">Ingresar</a>
-        <a class="pseudo" href="">Registrarse</a>
-        <a class="pseudo" href="#main__title"> Productos</a>
-        
-          <button class='nav_btn'>
-            <div class='cart_quantity_container'> 
-              <p id='cart_quantity'>0</p>
-            </div>
-            <img  src="./Img/cart.png" alt="" /> 
-          </button>           
-        
-      </nav>
-    </div>
+ 
+  <div class='arrow_container'>
+    <a href="/index.html">
+      <img src="./Img/arrowLogin.png" alt=""> 
+    </a>
+  </div>
   <div class="container__login">
     <h1>Login</h1>
-  <form >
-    <p class='error_msg' id='e-mail'>Esto es un error</p>
-    <input type="text" placeholder="e-mail" class="field" id='email'>
-    <p class='error_msg' id='password'>Esto es un error</p>
-    <input type="password" placeholder="password" class="field" id='password'>
-    <input type="submit" value="login" class="btn">
-  </form>
-  <div class="pass-link">
-    <a href="#" >Registrate</a>
-  </div>	
-</div>
+    <form id='form'>
+      <p class='error_msg' id='e-mail_error'>Esto es un error</p>
+      <input type="text" placeholder="e-mail" class="field" id='email'>
+      <p class='error_msg' id='password_error'>Esto es un error</p>
+      <input type="password" placeholder="password" class="field" id='password'>
+      
+      <button type="submit"  class="btn" id='submitBtn'>
+        Log in
+      </button>
+    </form>
+    <div class="pass-link">
+      <p>¿ No estas registrado ? <strong><a href="/sign-up.html"> Registrate.</a></strong></p>
+    </div>	
+  </div>
+  <script src="/login/login.js"></script>
 </body>
 </html>

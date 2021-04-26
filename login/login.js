@@ -1,15 +1,12 @@
 const formElement= document.getElementById('form')
-const usernameError=document.getElementById('username_error')
+const passwordError=document.getElementById('password_error')
 const emailError=document.getElementById('e-mail_error')
-const confirmPasswordError=document.getElementById('confirmPassword_error')
 const submitBtn=document.getElementById('submitBtn')
 
 submitBtn.disabled=true
 
-const username=document.getElementById('username')
 const email=document.getElementById('email')
 const password=document.getElementById('password')
-const confirmPassword=document.getElementById('confirmPassword')
 
 function setUserStorage(username){
   localStorage.removeItem('user')
@@ -27,15 +24,23 @@ function starLoading(){
   submitBtn.appendChild(imgElement)
 }
 
+function stopLoading(){
+ 
+  let btnImage=document.getElementById('imgBtn')
+  submitBtn.removeChild(btnImage)
+  submitBtn.innerHTML='Log in'
+  submitBtn.disabled=false
+  submitBtn.style.backgroundColor='rgb(95, 132, 157)'
+}
 
-async function signUp(username, email, password){
+
+async function logIn(identifier, password){
   starLoading()
   try {
-    const response = await fetch('http://localhost:1337/auth/local/register',{
+    const response = await fetch('http://localhost:1337/auth/local',{
       method:'POST',
       body: JSON.stringify({
-        username,
-        email,
+        identifier,
         password       
       }),
       headers: {
@@ -45,13 +50,12 @@ async function signUp(username, email, password){
     return response.json()
   } catch (error) {
     console.log(error)
+    
   }
 }
 
-
-
 formElement.addEventListener('change', ()=>{  
-  if(username.value && email.value && password.value && confirmPassword.value){
+  if(email.value && password.value){
     submitBtn.disabled=false
     submitBtn.style.backgroundColor='rgb(25, 103, 211)'
   }})
@@ -60,27 +64,15 @@ formElement.addEventListener('change', ()=>{
 
 formElement.addEventListener('submit', (e)=>{
   e.preventDefault()
-  
-  if(password.value.length < 7){
-    passwordError.style.visibility='visible'
-    passwordError.innerHTML='Ingrese una contraseña mas larga'
-
-    setTimeout(()=>{      
-      passwordError.style.visibility='hidden'
-    },3000)
-  }else if(password.value != confirmPassword.value){
-    confirmPasswordError.style.visibility='visible'
-    confirmPasswordError.innerHTML='Las contraseñas deben coincidir'
-    setTimeout(()=>{      
-      confirmPasswordError.style.visibility='hidden'
-    },3000)
-  }
-  else{
-    signUp(username.value, email.value, password.value).then(()=>{
-      setUserStorage(username.value)
+  const identifier= email.value
+  logIn(identifier, password.value).then(r => {
+    if (r.error){
+      stopLoading()
+      emailError.style.visibility='visible'
+      emailError.innerHTML='Credenciales Invalidas'
+    }else{
+      setUserStorage(r.user.username)
       window.location.href="index.html"
-    })
-   
-    
-  }
+    }
+  }) 
 })
