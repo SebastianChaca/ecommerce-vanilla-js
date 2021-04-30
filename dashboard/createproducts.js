@@ -67,6 +67,25 @@ novedad.addEventListener('click',()=>{
 descuento.addEventListener('click',()=>{
   descuento.checked ? descuento.value = true :descuento.value=false 
 })
+async function getImg(data){
+  try {
+    const response= await fetch('https://api.cloudinary.com/v1_1/dxexw8kqg/image/upload',{
+      method:'post',
+      body: data
+    })
+    return response.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+const idFile =document.getElementById('file')
+idFile.addEventListener('change', (e)=>{
+  const formData= new FormData()
+  formData.append('file', e.target.files[0])
+  formData.append('upload_preset', 'yetyq6lc')
+  getImg(formData).then(r => console.log(r.url))
+})
 
 document.querySelector('#form').addEventListener('submit', (e)=>{
  
