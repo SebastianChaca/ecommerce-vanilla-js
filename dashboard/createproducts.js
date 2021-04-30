@@ -56,7 +56,7 @@ let shorDescription=document.getElementById('descritpionCorta')
 let descuento=document.getElementById('descuento')
 let novedad=document.getElementById('novedad')
 let rate=document.getElementById('rate')
-let image=document.getElementById('file')
+// let image=document.getElementById('file')
 novedad.value=false
 descuento.value=false
 
@@ -80,11 +80,11 @@ async function getImg(data){
 }
 
 const idFile =document.getElementById('file')
+const formData= new FormData()
 idFile.addEventListener('change', (e)=>{
-  const formData= new FormData()
   formData.append('file', e.target.files[0])
   formData.append('upload_preset', 'yetyq6lc')
-  getImg(formData).then(r => console.log(r.url))
+  
 })
 
 document.querySelector('#form').addEventListener('submit', (e)=>{
@@ -102,8 +102,11 @@ document.querySelector('#form').addEventListener('submit', (e)=>{
     descuento: descuento.value,
    
   }
-    
-  createProduct(producto).then(()=>{
+  getImg(formData).then(r => {    
+    producto.imageFromDash= r.url
+    createProduct(producto)
+  })
+  .then(()=>{
     nombre.value=''
     precio.value=''
     descripcion.value=''
