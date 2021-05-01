@@ -81,9 +81,19 @@ async function getImg(data){
 
 const idFile =document.getElementById('file')
 const formData= new FormData()
+const img= document.getElementById('img-id')
 idFile.addEventListener('change', (e)=>{
   formData.append('file', e.target.files[0])
   formData.append('upload_preset', 'yetyq6lc')
+  const reader = new FileReader();
+  reader.addEventListener("load", function () {
+    
+    img.src = reader.result;
+  }, false);
+
+  if (file) {
+    reader.readAsDataURL(e.target.files[0]);
+  }
   
 })
 
@@ -103,10 +113,9 @@ document.querySelector('#form').addEventListener('submit', (e)=>{
    
   }
   getImg(formData).then(r => {    
-    producto.imageFromDash= r.url
+    producto.imageFromDash= r.url    
     createProduct(producto)
-  })
-  .then(()=>{
+  }).then(()=>{
     nombre.value=''
     precio.value=''
     descripcion.value=''
@@ -118,6 +127,7 @@ document.querySelector('#form').addEventListener('submit', (e)=>{
     descuento.value=''
     novedad.checked=false
     descuento.checked=false
+    img.src=''
     alert()
   })
  

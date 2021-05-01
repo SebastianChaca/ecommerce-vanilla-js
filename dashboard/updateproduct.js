@@ -53,7 +53,7 @@ async function updateProduct(data){
 const productosStorage= JSON.parse(localStorage.getItem('productos-api'))
 const selectedId=JSON.parse(localStorage.getItem('current-id'))
 const selectedProduct= productosStorage.find( producto => producto.id === selectedId)
-
+console.log(selectedProduct)
 let nombre=document.getElementById('nombre')
 nombre.value=selectedProduct.title
 let precio=document.getElementById('precio')
@@ -72,7 +72,8 @@ let novedad=document.getElementById('novedad')
 novedad.checked=selectedProduct.novedad
 let rate=document.getElementById('rate')
 rate.value=selectedProduct.rate
-
+let img= document.getElementById('img-id')
+img.src= selectedProduct.image ? selectedProduct.image.url : selectedProduct.imageFromDash
 novedad.value=selectedProduct.novedad
 descuento.value=selectedProduct.descuento
 

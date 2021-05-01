@@ -1,10 +1,11 @@
-.sidebar{
-  height: 100vh;
+/* .sidebar{
+  height: 1000px;
   
-}
+} */
 .form_container{
   width: 600px;
   margin: 0 auto;
+  margin-bottom: 10px;
  
   
 }
@@ -160,4 +161,11 @@
   height: 30px;
   margin-right: 10px;
   margin-left: 20px;
+}
+#img-id{
+  max-width: 200px;
+  margin: auto;
+  margin-top: 20px;
+  max-height: 300px;
+  object-fit: cover;
 }

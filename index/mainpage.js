@@ -33,7 +33,7 @@ function createCard(product, gallery){
   let divContainer = document.createElement('div');
   divContainer.className = 'content';    
   divContainer.innerHTML = `  
-  <img src=${product.image ? product.image.url : '/Img/notfound.png'} />
+  <img src=${product.image ? product.image.url || product.imageFromDash : '/Img/notfound.png'} />
   <h3>${product.title}</h3>
   <p>${product.shortDescription}</p>
   <div class='star__container'>
