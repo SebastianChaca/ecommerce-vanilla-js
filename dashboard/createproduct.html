@@ -79,12 +79,16 @@
         <textarea type="textarea" id='descripcion' rows="5" cols="70"></textarea>
         <label for="">Descritpion corta</label>
         <input type="text" id='descritpionCorta'>
-        <div class='image'>          
-            <input type="file" id="file" name="img" accept="image/*">
-            <label for="file">Seleccione una imagen</label>
+        <img id='img-id' src='../Img/dashboard/imageprev.png'>              
+        <div class='image'>
+            
+              <input type="file" id="file" name="img" accept="image/*">
+              <label for="file">
+                <img src="../Img/dashboard/upload.png" alt="">
+                <p>Seleccione una imagen</p>
+              </label>
+                       
         </div>
-        <img id='img-id'>
-              
         <button type='submit' id='btn'>
           Crear
         </button>       

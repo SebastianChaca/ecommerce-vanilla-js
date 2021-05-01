@@ -1,7 +1,8 @@
-/* .sidebar{
-  height: 1000px;
+.sidebar{
+  height: 100vh;
+  position: fixed;
   
-} */
+}
 .form_container{
   width: 600px;
   margin: 0 auto;
@@ -11,13 +12,17 @@
 }
 .title{
   text-align: center;
+  margin: 0;
+}
+.title h1{
+  margin: 15px 0 15px 0 ;
 }
 .form_container form {
   display: flex;
   flex-direction: column;  
   width: 100%;
   margin: 0;
-  background-color: #fcf8f4;
+  background: rgb(255, 255, 255);
   padding: 30px;
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
@@ -27,19 +32,22 @@
 }
 .form_container input{
   border: none;
-  height: 35px;
-  border-radius: 5px;
-  background-color: #fdf5f5;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  height: 28px;
+  border-radius: 2px;
+  color: rgb(51, 55, 64);
+    background-color: transparent;
+  /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); */
+  border: 1px solid rgb(227, 233, 243);
   margin: 0;
   padding-left: 10px;
 }
 .form_container textarea{
   border: none;
-  
+  height: 130px;
+  border: 1px solid rgb(227, 233, 243);
   border-radius: 5px;
-  background-color: #fdf5f5;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  background: rgb(255, 255, 255);
+  /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); */
   margin: 0;
   padding-left: 10px;
 }
@@ -97,10 +105,12 @@
 }
 .categoriaCheckbox input {
   width: 195px;
+  
 }
 .checkbox {
   display: flex;
   margin:0;
+  
 }
 .checkbox label{
   margin-left: 18px;
@@ -112,10 +122,26 @@
   margin-right: 10px;
   margin-left: 10px;
   
+ 
+  
 }
 .image{
   display: flex;
   width: 100%;
+  justify-content: left;
+  align-items: center;
+  margin: 0;  
+ 
+}
+.image img{
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  margin-right: 5px;
+  
+}
+.image p{
+  font-size: 15px;
 }
 .image input{
   opacity: 0;
@@ -124,7 +150,10 @@
   position: absolute;
 }
 .image label{
-  padding: 15px;
+  display: flex;
+  align-items: center;
+  width: 200px;
+  padding: 10px;
   margin: 20px 0;
   border-radius: 10px;
   box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
@@ -166,6 +195,6 @@
   max-width: 200px;
   margin: auto;
   margin-top: 20px;
-  max-height: 300px;
+  min-height: 200px;
   object-fit: cover;
 }
