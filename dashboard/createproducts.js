@@ -29,7 +29,7 @@ function stopLoading(){
 }
 
 async function createProduct(data){
-  starLoading()
+    
  try {
   const response = await fetch('http://localhost:1337/products',{
     method: 'POST',
@@ -68,6 +68,7 @@ descuento.addEventListener('click',()=>{
   descuento.checked ? descuento.value = true :descuento.value=false 
 })
 async function getImg(data){
+  starLoading() 
   try {
     const response= await fetch('https://api.cloudinary.com/v1_1/dxexw8kqg/image/upload',{
       method:'post',
@@ -100,22 +101,22 @@ idFile.addEventListener('change', (e)=>{
 document.querySelector('#form').addEventListener('submit', (e)=>{
  
   e.preventDefault()
-  const producto={
-    title: nombre.value,
-    price: precio.value,
-    description: descripcion.value,
-    stock: stock.value,
-    rate: rate.value,
-    categoria: categoria.value,
-    shortDescrition: shorDescription.value,
-    novedad: novedad.value,
-    descuento: descuento.value,
-   
-  }
-  getImg(formData).then(r => {    
-    producto.imageFromDash= r.url    
-    createProduct(producto)
-  }).then(()=>{
+ 
+  getImg(formData).then(r =>{
+     const producto={
+      title: nombre.value,
+      price: precio.value,
+      description: descripcion.value,
+      stock: stock.value,
+      rate: rate.value,
+      categoria: categoria.value,
+      shortDescrition: shorDescription.value,
+      novedad: novedad.value,
+      descuento: descuento.value,
+      imageFromDash: r.url
+    }     
+     return producto    
+   }).then((producto)=>createProduct(producto)).then(()=>{
     nombre.value=''
     precio.value=''
     descripcion.value=''
