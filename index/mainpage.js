@@ -27,7 +27,12 @@ function getCartQuantity(){
   if (cartStorage.length < 1){
     cartQuantityElement.innerHTML='0'
   }else{
-    cartQuantityElement.innerHTML=`${cartStorage.length}`
+    let totalQuantity= 0
+    cartStorage.forEach(prod =>{
+      totalQuantity= totalQuantity + prod.quantity
+    })
+    
+    cartQuantityElement.innerHTML=`${totalQuantity}`
   }
 }
 
