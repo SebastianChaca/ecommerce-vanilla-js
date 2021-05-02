@@ -40,11 +40,8 @@ function addToCart(id){
         return {...p, quantity: p.quantity + 1}
       }
       return p
-    })
-   
-    localStorage.removeItem('cart')
-    localStorage.setItem('cart', JSON.stringify(newCartStorage))
-    
+    })    
+    localStorage.setItem('cart', JSON.stringify(newCartStorage))    
   }else{
     cartStorage.push({product, quantity: 1})
     localStorage.setItem('cart', JSON.stringify(cartStorage))   
