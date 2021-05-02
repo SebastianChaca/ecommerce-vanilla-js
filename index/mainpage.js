@@ -7,33 +7,58 @@ function getUser(){
 
 }
 
+function getCartQuantity(){
+  const cartStorage= localStorage.getItem('cart')? JSON.parse(localStorage.getItem('cart')): []
+  let cartQuantityElement=document.getElementById('cart_quantity')
+  if (cartStorage.length < 1){
+    cartQuantityElement.innerHTML='0'
+  }else{
+    cartQuantityElement.innerHTML=`${cartStorage.length}`
+  }
+}
+
+function alert(title){
+  let alertContainer=document.getElementById('alert')
+  alertContainer.style.display='flex'
+  let alertMsg=document.getElementById('alert_msg')
+  alertMsg.innerHTML=`${title} agregado al carrito`
+  setTimeout(()=>{
+    alertContainer.style.display='none'
+  },3000)
+}
+
+
 function addToCart(id){
   const storage=JSON.parse(localStorage.getItem('productos-api'))
   const product= storage.find(p => p.id=== id)
   const cartStorage= localStorage.getItem('cart')? JSON.parse(localStorage.getItem('cart')): []
-  cartStorage.push(product)
-  localStorage.setItem('cart', JSON.stringify(cartStorage)) 
-  
-  let cartQuantityElement=document.getElementById('cart_quantity')
-  cartQuantityElement.innerHTML=`${cartStorage.length}`
-
-
-  let alertContainer=document.getElementById('alert')
-  alertContainer.style.display='flex'
-  let alertMsg=document.getElementById('alert_msg')
-  alertMsg.innerHTML=`${product.title} agregado al carrito`
-  setTimeout(()=>{
-    alertContainer.style.display='none'
-  },3000)
-  
+  const productValidation= cartStorage.find(p=> p.product.id == product.id)
+ 
+  if (productValidation){
+    const newCartStorage=cartStorage.map( p => {
+      if(p.product.id == productValidation.product.id){
+        return {...p, quantity: p.quantity + 1}
+      }
+      return p
+    })
+   
+    localStorage.removeItem('cart')
+    localStorage.setItem('cart', JSON.stringify(newCartStorage))
+    
+  }else{
+    cartStorage.push({product, quantity: 1})
+    localStorage.setItem('cart', JSON.stringify(cartStorage))   
+  }
+  getCartQuantity()
+  alert(product.title)  
 }
 
-function createCard(product, gallery){
-   
+
+function createCard(product, gallery){     
   let divContainer = document.createElement('div');
   divContainer.className = 'content';    
   divContainer.innerHTML = `  
-  <img src=${product.image ? product.image.url || product.imageFromDash : '/Img/notfound.png'} />
+  <img src=${product.image ? product.image.url : product.imageFromDash ? product.imageFromDash : '/Img/notfound.png'} />
   <h3>${product.title}</h3>
   <p>${product.shortDescription}</p>
   <div class='star__container'>
@@ -177,11 +202,7 @@ function createSections(r) {
   createProduct(filterArray(r, 'Puro'), 'product__puros','Puros');
 }
 
-function getCartQuantity(){
-  const cartStorage= localStorage.getItem('cart')? JSON.parse(localStorage.getItem('cart')): []
-  let cartQuantityElement=document.getElementById('cart_quantity')
-  cartQuantityElement.innerHTML=`${cartStorage.length}`
-}
+
 document.addEventListener('DOMContentLoaded', getCartQuantity())
 logOutBtn.addEventListener('click', ()=>{
   localStorage.removeItem('user')

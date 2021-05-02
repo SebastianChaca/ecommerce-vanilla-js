@@ -1,3 +1,6 @@
+/* body{
+  background-color: #fff !important; 
+} */
 .sidebar{
   height: 100vh;
   position: fixed;
@@ -29,14 +32,15 @@
 }
 .form_container label{
   margin: 10px 0 10px 5px;
+  font-size: 12px;
 }
 .form_container input{
   border: none;
-  height: 28px;
+  height: 25px;
   border-radius: 2px;
   color: rgb(51, 55, 64);
     background-color: transparent;
-  /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); */
+  
   border: 1px solid rgb(227, 233, 243);
   margin: 0;
   padding-left: 10px;
@@ -47,7 +51,7 @@
   border: 1px solid rgb(227, 233, 243);
   border-radius: 5px;
   background: rgb(255, 255, 255);
-  /* box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); */
+ 
   margin: 0;
   padding-left: 10px;
 }
@@ -61,7 +65,7 @@
   border-radius: 5px;
   font-weight: 500;
   font-size: 20px;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.5);
 }
 .form_container button:hover{
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.6);
@@ -134,14 +138,15 @@
  
 }
 .image img{
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
   object-fit: cover;
-  margin-right: 5px;
+  margin-right: 7px;
+  margin-left:10px;
   
 }
 .image p{
-  font-size: 15px;
+  font-size: 12px;
 }
 .image input{
   opacity: 0;
@@ -152,11 +157,11 @@
 .image label{
   display: flex;
   align-items: center;
-  width: 200px;
-  padding: 10px;
+  width: 175px;
+  padding: 3px;
   margin: 20px 0;
   border-radius: 10px;
-  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 7px rgba(0, 0, 0, 0.5);
   color: aliceblue;
   background-color: #0b3168;
 }
