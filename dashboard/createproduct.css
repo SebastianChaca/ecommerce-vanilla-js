@@ -39,8 +39,7 @@
   height: 25px;
   border-radius: 2px;
   color: rgb(51, 55, 64);
-    background-color: transparent;
-  
+  background-color: transparent;  
   border: 1px solid rgb(227, 233, 243);
   margin: 0;
   padding-left: 10px;
@@ -51,6 +50,7 @@
   border: 1px solid rgb(227, 233, 243);
   border-radius: 5px;
   background: rgb(255, 255, 255);
+  font-family: 'Roboto', sans-serif;
  
   margin: 0;
   padding-left: 10px;

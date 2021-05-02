@@ -12,16 +12,51 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,100;1,300&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="./styles/sidebar.css" />
     <link rel="stylesheet" href="./styles/global_style.css" />
     <link rel="stylesheet" href="./index/mainpage.css" />
+    
     <title>NUCBAR</title>
   </head>
   <body>
+    <div  id='backdrop' >
+    <aside class='sidebar' id='sidebar'>
+      <div class='sidebar-btn-close-container' >
+        <button class='sidebar-btn-close' id='btn_close'>
+          <img src="./Img/closeBtn.png" alt="X">
+          
+        </button>
+      </div>
+      <div class='logo_container'>
+        <!-- <img src="/Img/cigars.png" alt="cigars" /> -->
+        <h1>NUCBAR</h1>
+      </div>      
+      <ul>
+        <div>
+           <li>
+            <a  href='/'>Home</a>
+          </li>
+          <li>
+            <a class="pseudo" href="/login.html">Ingresar</a>
+          </li>
+          <li>
+            <a class="pseudo" href="/aboutus">About us</a>
+          </li>
+          <li>            
+            <a class="pseudo" href="#main__title"> Productos</a>        
+          </li>
+      
+        </div>
+      </ul>
+    </aside>
+  </div>
+
+
     <div class="container">      
       <div class="nav__container">
         <nav class="navbar__content">
           <img src="/Img/cigars.png" alt="cigars" />
-          <button class='hamburger'>
+          <button class='hamburger' id='hamburger_btn'>
             <img  src='/Img/hamburger3.png' alt='hamburger'>
           </button>
           <a class="pseudo" href="/login.html">Ingresar</a>

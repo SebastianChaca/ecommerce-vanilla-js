@@ -1,0 +1,98 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.75);
+  z-index: 10;
+  transition: all 0.4s linear;
+}
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  height: 100vh;
+  width: 70%;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  transition: all 0.3s linear;
+  transform: translate(-100%);
+}
+.logo-sidebar {
+  margin: 15px auto;
+  width: 9rem;
+}
+.sidebar-btn-close-container {
+  position: relative;
+  width: 100%;
+}
+.sidebar-btn-close {
+  position: absolute;
+  right: 50px;
+  border: none;
+  outline: none;
+  background-color: white;
+  padding: 15px 0 15px 25px;
+  width: 30px;
+  cursor: pointer;
+}
+.sidebar-btn-close-icon {
+  width: 50px;
+  height: 25px;
+  background-color: white;
+}
+.sidebar-btn-close img{
+  width: 25px;
+}
+.show-sidebar {
+  
+  transform: translate(0);
+}
+.sidebar ul{
+  list-style-type: none;
+  padding-left:20px ;
+}
+.sidebar li {
+  padding: 10px 0 15px 0px;
+  
+}
+
+.sidebar a {
+  font-size: 25px;
+  display: flex;
+  align-items: center;
+  /* font-size: 1.25rem; */
+  text-transform: capitalize;
+  padding: 0.5rem 1.5rem;
+  color: hsl(209, 34%, 30%);
+  transition: all 0.3s linear;
+  letter-spacing: 0.1rem;
+}
+.sidebar li:hover {
+  background-color: #9bacbe;
+}
+.sidebar a:hover {
+  color: white;
+}
+.username-sidebar {
+  padding: 1rem 1.5rem 0 1.5rem;
+}
+
+.logo_container {
+  display: flex;
+  justify-content: center;
+  padding: 40px 0 0 0px;
+  font-size: 20px;
+}
+
+
+@media screen and (min-width: 800px) {
+  .show-sidebar {
+    display: none;
+  }
+  .backdrop {
+    display: none;
+  }
+}

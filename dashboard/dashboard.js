@@ -44,6 +44,16 @@ function closeModal(){
   backModal.style.display='none'
   
 }
+function alert(){  
+  let alertContainer=document.getElementById('alert')
+  alertContainer.style.display='flex'  
+  let alertMsg=document.getElementById('alert_msg')
+  alertMsg.innerHTML=`Producto eliminado`
+  setTimeout(()=>{
+    alertContainer.style.display='none'   
+
+  },3000)
+}
 async function deleteProduct(id){  
   localStorage.removeItem('productos-api')
   loadingStart()  
@@ -65,7 +75,7 @@ function handleDelete(){
     tbodyElement.innerHTML=''
     // loadingFinish()
     // let trElement=document.getElementById(r.id).remove()
-  }).then(()=>getProducts()).then(r=> renderTable(r))
+  }).then(()=>getProducts()).then(r=> renderTable(r)).then(alert())
 }
 function renderTable(productos){
   loadingFinish();

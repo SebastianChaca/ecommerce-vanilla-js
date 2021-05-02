@@ -1,5 +1,19 @@
 let logOutBtn=document.getElementById('logoutBtn')
 let userName=document.getElementById('username')
+let hambugerBtn=document.getElementById('hamburger_btn')
+let backdropModal=document.getElementById('backdrop')
+let sidebar=document.getElementById('sidebar')
+let closeSibarBtn=document.getElementById('btn_close')
+
+function openSidebar(){
+  backdropModal.className='backdrop'
+  sidebar.className='sidebar show-sidebar'
+}
+function closeSibar(){
+  backdropModal.className=''
+  sidebar.className='sidebar'
+}
+
 function getUser(){
   logOutBtn.style.display='block'
   const usernameStorage= localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')): ''
@@ -188,7 +202,7 @@ function createProduct(products, id,titleContent) {
 }
 function createSections(r) {
   localStorage.setItem('productos-api', JSON.stringify(r))
-  loadingFinish();
+  
   createProduct(
     filterArray(r, 'descuento'),
     'product__descuento',
@@ -201,12 +215,15 @@ function createSections(r) {
 
 
 document.addEventListener('DOMContentLoaded', getCartQuantity())
+hambugerBtn.addEventListener('click', ()=>openSidebar())
+closeSibarBtn.addEventListener('click', ()=>closeSibar())
+backdropModal.addEventListener('click', ()=>closeSibar())
 logOutBtn.addEventListener('click', ()=>{
   localStorage.removeItem('user')
   logOutBtn.style.display='none'
   userName.style.display='none'
 })
-getProducts().then((r) => createSections(r), getUser());
+getProducts().then((r) => createSections(r), loadingFinish(),getUser());
 
 
 

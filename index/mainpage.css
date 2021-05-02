@@ -121,6 +121,9 @@ a::before {
 .nav_btn img:hover {
   opacity: 0.6;
 }
+/* .cart_quantity_container{
+  position: relative;
+} */
 .cart_quantity_container p{
   color: black;
   font-size: 15px;
@@ -477,8 +480,11 @@ p {
   .nav__container{
     height: 300px;
   }
-  .navbar__content > a, p{
+  .navbar__content > a {
     display:none
+  }
+  .logout_btn{
+    display:none !important
   }
   .navbar__content > img:first-of-type {
     display: none;
@@ -517,7 +523,9 @@ p {
   }
 }
 @media (max-width: 650px) {
-  
+  .alert{
+    margin-top: 20px;
+  }
   .gallery {
     display: block;
     width: 450px;

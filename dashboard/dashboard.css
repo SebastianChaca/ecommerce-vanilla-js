@@ -118,3 +118,29 @@
   text-decoration: none;
   cursor: pointer;
 }
+
+.alert{
+  display:none;
+  background-color:  #c5fac5;
+  width: 400px;
+  height: 65px;  
+  justify-content: left ;
+  align-items: center;
+  border-radius: 3px;
+  margin: 5px auto;
+  position: fixed;
+  z-index: 101;
+  
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: 0 5px 8px rgba(183, 185, 192, 0.3);
+  animation: fadeIn 0.3s;
+  margin-bottom: 20px;
+}
+.alert img{
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  margin-left: 20px;
+}
