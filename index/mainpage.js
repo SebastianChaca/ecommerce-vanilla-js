@@ -1,26 +1,3 @@
-let logOutBtn=document.getElementById('logoutBtn')
-let userName=document.getElementById('username')
-let hambugerBtn=document.getElementById('hamburger_btn')
-let backdropModal=document.getElementById('backdrop')
-let sidebar=document.getElementById('sidebar')
-let closeSibarBtn=document.getElementById('btn_close')
-
-function openSidebar(){
-  backdropModal.className='backdrop'
-  sidebar.className='sidebar show-sidebar'
-}
-function closeSibar(){
-  backdropModal.className=''
-  sidebar.className='sidebar'
-}
-
-function getUser(){
-  logOutBtn.style.display='block'
-  const usernameStorage= localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')): ''
-  userName.innerHTML=`Bienvenido ${usernameStorage.username}`
-
-}
-
 function getCartQuantity(){
   const cartStorage= localStorage.getItem('cart')? JSON.parse(localStorage.getItem('cart')): []
   let cartQuantityElement=document.getElementById('cart_quantity')
@@ -68,7 +45,12 @@ function addToCart(id){
   getCartQuantity()
   alert(product.title)  
 }
-
+function addToDetail(id){
+  const productsStorage= localStorage.getItem('productos-api')? JSON.parse(localStorage.getItem('productos-api')):[]
+  const productDetail= productsStorage.find(p => p.id == id)
+  localStorage.setItem('product-detail', JSON.stringify(productDetail))
+  window.location.href='/productdetail.html'
+}
 
 function createCard(product, gallery){     
   let divContainer = document.createElement('div');
@@ -91,10 +73,10 @@ function createCard(product, gallery){
   </div>
   <div class="btns__card">
     <button class="btn__cart" onclick={addToCart('${product.id}')}>
-      <img src="/Img/miniShopIcon.png" alt="" /> <p>AGREGAR</p> 
+      <img src="/Img/miniShopIcon.png" alt="shop icon" /> <p>AGREGAR</p> 
     </button>
-    <button class="btn__detail">
-      <img src="/Img/infoIcon.png" alt="" /><p>DETALLE</p>
+    <button class="btn__detail" onclick={addToDetail('${product.id}')}>
+      <img src="/Img/infoIcon.png" alt="detail icon" /><p>DETALLE</p>
     </button>
   </div>
   `; 
@@ -218,17 +200,7 @@ function createSections(r) {
   createProduct(filterArray(r, 'Puro'), 'product__puros','Puros');
 }
 
-
-document.addEventListener('DOMContentLoaded', getCartQuantity())
-hambugerBtn.addEventListener('click', ()=>openSidebar())
-closeSibarBtn.addEventListener('click', ()=>closeSibar())
-backdropModal.addEventListener('click', ()=>closeSibar())
-logOutBtn.addEventListener('click', ()=>{
-  localStorage.removeItem('user')
-  logOutBtn.style.display='none'
-  userName.style.display='none'
-})
-getProducts().then((r) => createSections(r), loadingFinish(),getUser());
+getProducts().then((r) => createSections(r), loadingFinish());
 
 
 

@@ -32,7 +32,7 @@
   width: 100%;
   height: 100px;
   display: grid;
-  grid-template-columns: 120px 200px 200px 200px 200px;
+  grid-template-columns: 120px 200px 200px 200px 300px 80px;
   position: relative;
   align-items: center;
   background-color: rgba(255, 255, 255, 0.253);
@@ -144,7 +144,19 @@ a::before {
   height: 40px;
   margin-left: 15px;
 }
-
+.logout_btn{
+  display: none;
+  border: none;
+  background-color: transparent;
+  color:  #fffefe;
+  font-size: 25px;
+  font-weight: 500;
+  margin-left: 20px;
+  cursor: pointer;
+}
+.logout_btn:hover{
+  color: #d4dad2;
+}
 
 @media (max-width: 800px) {
 
