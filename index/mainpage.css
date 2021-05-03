@@ -53,8 +53,9 @@
   justify-content: center;
   align-items: center;
   color: #fffefe;
-  font-size: 25px;
+  font-size: 18px;
   position: relative;
+  letter-spacing: 2px;
 }
 a::before {
   content: '';

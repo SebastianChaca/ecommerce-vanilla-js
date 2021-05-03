@@ -3,7 +3,8 @@
   /* background-image: url(/Img/banner2.png); */
   background-image: url(/Img/wallpapper.jpg);
   padding-top: 0px;
-  position: relative; 
+  position: relative;
+  
   
 }
 .logo__container {
@@ -53,8 +54,9 @@
   justify-content: center;
   align-items: center;
   color: #fffefe;
-  font-size: 25px;
+  font-size: 18px;
   position: relative;
+  letter-spacing: 2px;
 }
 a::before {
   content: '';
@@ -149,7 +151,7 @@ a::before {
   border: none;
   background-color: transparent;
   color:  #fffefe;
-  font-size: 25px;
+  font-size: 18px;
   font-weight: 500;
   margin-left: 20px;
   cursor: pointer;
