@@ -168,15 +168,18 @@ hr{
   }
   .add_cart button{
     border: 1px solid #970747;
-    padding: 5px 8px 0 8px;
+    padding: 8px 10px 0 10px;
     height: 50px;
     border-radius: 10px;
     color: azure !important;
-    background-color: #970747;
+    background-color: #970747;    
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+    
     
   }
   #addToCart p{
-    color: azure 
+    color: azure;
+    font-size: 25px; 
   }
   .price_and_cart p{
     margin-bottom: 30px;
