@@ -33,3 +33,17 @@
   /* margin: 10px auto; */
   box-shadow: 3px -5px 20px 2px rgba(0,0,0,0.57);
 }
+@media (max-width: 650px){
+  .footer{
+    display: block;
+  }
+  .footer ul{
+    width: 100px;
+    margin: 30px auto;
+    padding: 0;
+  }
+  .footer__content{
+    width: 100%;
+    height: 500px;
+  }
+}
