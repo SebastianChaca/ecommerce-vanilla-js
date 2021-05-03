@@ -1,0 +1,141 @@
+.product_main_container{
+  border: 1px solid rgb(217, 219, 223);
+  border-radius: 5px;
+  width: 700px;
+  height: 500px;
+  margin: 80px auto;
+  padding: 40px 40px 70px 40px;
+}
+hr{
+  width:100%;
+  border: 1px solid rgb(172, 172, 174);
+  
+}
+.arrow_container{
+  margin: 0;
+}
+.arrow_container {
+  position:relative;
+  width:0px;
+  height:0px;
+  border-top: 30px solid  #970747;
+  border-bottom: 30px solid transparent;
+  border-left: 30px solid #970747;
+  border-right: 30px solid transparent;
+}
+.arrow_container a{
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  cursor: pointer;
+ 
+}
+.arrow_container img{
+  width: 16px;
+  
+}
+.productDetail_container{
+  display: flex;  
+  width: 650px;
+  height: 400px;
+  margin: auto;
+  
+}
+
+.img_container{
+  margin: auto;
+  width: 300px;
+  height: 200px;
+  margin-top: 25px;
+ 
+}
+.img_container img{
+  width: 80%;
+  height: 80%;
+  object-fit: cover;
+}
+.title{
+  margin: 0 auto;
+}
+.title h1{
+  margin: 0;
+  font-size: 50px;
+  letter-spacing: 5px;
+ 
+}
+.title h3{
+  margin: 0;
+  color: #9fa7ac;
+  letter-spacing: 2px;
+}
+.title h4{
+  margin: 5px auto;
+  letter-spacing: 2px;
+}
+.description_container{
+  width: 400px;
+  margin-top: 15px;
+  color: #9fa7ac;
+  font-family: 'Montserrat', sans-serif;
+}
+.rate_container img {
+  width: 100px;
+}
+.quantity_container{
+  width: 100%;
+  display: flex;
+}
+.quantity_container p{
+  color: black;
+}
+.quantity_btn{
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  
+}
+.quantity_btn img{
+  width: 10px;
+
+}
+.quantity{
+  color: #797b7c !important;
+  margin: 0 10px 0 10px; 
+ 
+  
+}
+.btn_container{
+  width: 40%;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+.product_footer{
+  margin-top: 20px;
+}
+.price_and_cart, .precio_total{
+  width: 85%;
+  display: flex;
+  align-items: center;
+  margin: auto;
+  justify-content: space-between;
+}
+.price_and_cart p{
+  margin:0;
+  color: #970747;
+ font-size: 30px;
+ letter-spacing: 4px;
+}
+.add_cart button{
+  border: none;
+  cursor: pointer;
+}
+.precio_total p{
+  color: #58595a;
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: 3px;
+  font-weight: 100;
+}
