@@ -98,8 +98,8 @@ function handleError(){
   error.className='error'
 }
 async function getProducts() {
-  localStorage.removeItem('productos-api') 
   loadingStart();
+  localStorage.removeItem('productos-api') 
   try {
     const response = await fetch('http://localhost:1337/products');
     
@@ -200,7 +200,7 @@ function createSections(r) {
   createProduct(filterArray(r, 'Puro'), 'product__puros','Puros');
 }
 
-getProducts().then((r) => createSections(r), loadingFinish());
+getProducts().then((r) => createSections(r)).then(()=>loadingFinish());
 
 
 

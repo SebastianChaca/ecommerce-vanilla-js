@@ -84,18 +84,20 @@
         <div class='productDetail_container'>
           <div class='img_container'>
             <div class='title' >
-              <h1>PIPA</h1>
-              <h3>PIPA DE MADERA</h3>
-              <h4>$500</h4>
+              <h1 id='product_title'></h1>
+              <h3 id='product_shortTitle'></h3>
+              <h4 id='product_price'></h4>
             </div>
-              <img src="https://res.cloudinary.com/dxexw8kqg/image/upload/v1618109984/pipa3_b48fafeb23.png" alt="">
+            <div class='image'>
+              <img id='product_image'>
+            </div>
           </div>
           <div class='description_container'>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+            <p id='product_description'>
+              
             </p>
             <div class='rate_container'>
-              <img src="./Img/ratestar4.png" alt="rate stars">
+              <img id='product_rate'>
             </div>
             <div class='quantity_container'>
               <p>CANTIDAD</p>
@@ -104,7 +106,7 @@
                 <button class='quantity_btn'>
                   <img src="./Img/productDetailArrow.png" alt="">
                 </button>
-                <p class='quantity'>0</p>
+                <p class='quantity' id='product_quantity'>0</p>
                 <button class='quantity_btn'>
                   <img src="./Img/productDetailArrowRigth.png" alt="">
                 </button>
@@ -115,11 +117,11 @@
         <hr>
         <div class='product_footer'>
           <div class='precio_total'>
-            <p>PRECIO TOTAL</p>
+            <p >PRECIO TOTAL</p>
           </div>
           <div class='price_and_cart'> 
             <div class='total_price'>                        
-              <p>$1000</p>
+              <p id='product_totalPRice'></p>
             </div>
             <div class='add_cart'>
               <button>

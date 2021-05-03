@@ -2,7 +2,7 @@
   border: 1px solid rgb(217, 219, 223);
   border-radius: 5px;
   width: 700px;
-  height: 500px;
+  height: 550px;
   margin: 80px auto;
   padding: 40px 40px 70px 40px;
 }
@@ -39,7 +39,7 @@ hr{
 .productDetail_container{
   display: flex;  
   width: 650px;
-  height: 400px;
+  height: 450px;
   margin: auto;
   
 }
@@ -47,13 +47,20 @@ hr{
 .img_container{
   margin: auto;
   width: 300px;
-  height: 200px;
+  height: 250px;
   margin-top: 25px;
  
 }
-.img_container img{
-  width: 80%;
-  height: 80%;
+.image{
+  height: 250px;
+  text-align: center;
+  padding-right: 50px;
+  
+}
+.image img{
+  margin: 30px 0 10px 10px;
+  max-width: 90%;
+  max-height: 90%;
   object-fit: cover;
 }
 .title{
@@ -79,9 +86,11 @@ hr{
   margin-top: 15px;
   color: #9fa7ac;
   font-family: 'Montserrat', sans-serif;
+  padding-left: 30px;
 }
 .rate_container img {
-  width: 100px;
+  max-width: 100px;
+  max-height: 30px;
 }
 .quantity_container{
   width: 100%;
