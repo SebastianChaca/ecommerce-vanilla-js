@@ -2,13 +2,14 @@
   border: 1px solid rgb(217, 219, 223);
   border-radius: 5px;
   width: 700px;
-  height: 550px;
+  height: 575px;
   margin: 80px auto;
   padding: 40px 40px 70px 40px;
 }
 hr{
   width:100%;
   border: 1px solid rgb(172, 172, 174);
+  margin-top: 30px;
   
 }
 .arrow_container{
@@ -122,7 +123,7 @@ hr{
  align-items: center;
 }
 .product_footer{
-  margin-top: 20px;
+  margin-top: 30px;
 }
 .price_and_cart, .precio_total{
   width: 85%;
