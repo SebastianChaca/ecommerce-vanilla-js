@@ -5,7 +5,7 @@ let backdropModal=document.getElementById('backdrop')
 let sidebar=document.getElementById('sidebar')
 let closeSibarBtn=document.getElementById('btn_close')
 let ingresarElement=document.getElementById('ingresar')
-
+let navContainerElement=document.querySelector('.navbar__content')
 function openSidebar(){
   backdropModal.className='backdrop'
   sidebar.className='sidebar show-sidebar'
@@ -16,11 +16,15 @@ function closeSibar(){
 }
 
 function getUser(){
-  logOutBtn.style.display='block'
   const usernameStorage= localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')): ''
   if(usernameStorage.username){
     userName.innerHTML=`Bienvenido ${usernameStorage.username}`
     ingresarElement.style.display='none'
+    logOutBtn.style.display='block'
+    navContainerElement.style.gridTemplateColumns='120px 200px 200px 300px 200px'
+  }else{
+    userName.style.display='none'
+    ingresarElement.style.display='flex'
   }
 
 }
@@ -45,8 +49,12 @@ document.addEventListener('DOMContentLoaded', getCartQuantity(), getUser())
 hambugerBtn.addEventListener('click', ()=>openSidebar())
 closeSibarBtn.addEventListener('click', ()=>closeSibar())
 backdropModal.addEventListener('click', ()=>closeSibar())
+
+
 logOutBtn.addEventListener('click', ()=>{
   localStorage.removeItem('user')
   logOutBtn.style.display='none'
   userName.style.display='none'
+  ingresarElement.style.display='flex'
+  navContainerElement.style.gridTemplateColumns='120px 200px 200px 200px'
 })
