@@ -150,10 +150,10 @@ a::before {
   display: none;
   border: none;
   background-color: transparent;
-  color:  #fffefe;
+  color: #fffefe;
   font-size: 18px;
-  font-weight: 500;
-  margin-left: 20px;
+  position: relative;
+  letter-spacing: 2px;
   cursor: pointer;
 }
 .logout_btn:hover{

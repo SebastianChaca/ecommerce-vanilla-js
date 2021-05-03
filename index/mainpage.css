@@ -424,10 +424,10 @@ p {
   display: none;
   border: none;
   background-color: transparent;
-  color:  #fffefe;
-  font-size: 25px;
-  font-weight: 500;
-  margin-left: 20px;
+  color: #fffefe;
+  font-size: 18px;
+  position: relative;
+  letter-spacing: 2px;
   cursor: pointer;
 }
 .logout_btn:hover{

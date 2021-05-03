@@ -4,6 +4,7 @@ let hambugerBtn=document.getElementById('hamburger_btn')
 let backdropModal=document.getElementById('backdrop')
 let sidebar=document.getElementById('sidebar')
 let closeSibarBtn=document.getElementById('btn_close')
+let ingresarElement=document.getElementById('ingresar')
 
 function openSidebar(){
   backdropModal.className='backdrop'
@@ -17,7 +18,10 @@ function closeSibar(){
 function getUser(){
   logOutBtn.style.display='block'
   const usernameStorage= localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')): ''
-  userName.innerHTML=`Bienvenido ${usernameStorage.username}`
+  if(usernameStorage.username){
+    userName.innerHTML=`Bienvenido ${usernameStorage.username}`
+    ingresarElement.style.display='none'
+  }
 
 }
 
