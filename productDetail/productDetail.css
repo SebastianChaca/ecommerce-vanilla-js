@@ -149,3 +149,53 @@ hr{
   letter-spacing: 3px;
   font-weight: 100;
 }
+
+@media (max-width: 800px){
+  .product_main_container{
+    width: 300px;
+    height: 1250px;
+    padding: 10px;
+  }
+  .productDetail_container{
+    display: block;
+    height: 950px;
+    width: 300px;
+  }
+  .price_and_cart, .precio_total{
+    display: block;
+    text-align: center;
+    
+  }
+  .add_cart button{
+    border: 1px solid #970747;
+    padding: 5px 8px 0 8px;
+    height: 50px;
+    border-radius: 10px;
+    color: azure !important;
+    background-color: #970747;
+    
+  }
+  #addToCart p{
+    color: azure 
+  }
+  .price_and_cart p{
+    margin-bottom: 30px;
+    
+  }
+  .description_container{
+    width: 200px;
+  }
+  .img_container{
+    height: 400px;
+    width: 300px;  
+  }  
+  .title{
+    width: 200px;    
+  }
+  .title h1{
+    font-size: 30px;
+  }
+  hr{
+    width: 80%;
+  }
+}
