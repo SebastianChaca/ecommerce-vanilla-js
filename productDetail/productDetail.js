@@ -1,6 +1,6 @@
 const productDetail= localStorage.getItem('product-detail')? JSON.parse(localStorage.getItem('product-detail')):[]
 const productCart=localStorage.getItem('cart')? JSON.parse(localStorage.getItem('cart')):[]
-const productQuantity= productCart.find( p => p.product.id == productDetail.id)
+const productQuantity= productCart.find( p => p.id == productDetail.id)
 const titleElement=document.getElementById('product_title')
 const shortTitleElement=document.getElementById('product_shortTitle')
 const priceElement=document.getElementById('product_price')
@@ -30,7 +30,23 @@ function restarItem(){
     totalPriceElement.innerText=`$${totalPrice }`
   }
 }
-
+ function addCart(){
+   if(productQuantity){
+     const newCartStorage=productCart.map( p => {
+       if(p.id == productDetail.id){
+         return {...p, quantity}
+       }
+       return p
+     })    
+     localStorage.setItem('cart', JSON.stringify(newCartStorage))
+   }else{
+     const newProductQuantity={...productDetail, quantity}
+     productCart.push(newProductQuantity)
+     localStorage.setItem('cart', JSON.stringify(productCart))
+   }
+   window.location.href='/productcart.html'
+ }
+ addToCart.addEventListener('click', addCart)
 righBtn.addEventListener('click', sumarItem)
 leftBtn.addEventListener('click', restarItem)
 

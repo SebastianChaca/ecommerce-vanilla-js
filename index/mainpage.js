@@ -28,18 +28,18 @@ function addToCart(id){
   const storage=JSON.parse(localStorage.getItem('productos-api'))
   const product= storage.find(p => p.id=== id)
   const cartStorage= localStorage.getItem('cart')? JSON.parse(localStorage.getItem('cart')): []
-  const productValidation= cartStorage.find(p=> p.product.id == product.id)
+  const productValidation= cartStorage.find(p=> p.id == product.id)
  
   if (productValidation){
     const newCartStorage=cartStorage.map( p => {
-      if(p.product.id == productValidation.product.id){
+      if(p.id == productValidation.id){
         return {...p, quantity: p.quantity + 1}
       }
       return p
     })    
     localStorage.setItem('cart', JSON.stringify(newCartStorage))    
   }else{
-    cartStorage.push({product, quantity: 1})
+    cartStorage.push({...product, quantity: 1})
     localStorage.setItem('cart', JSON.stringify(cartStorage))   
   }
   getCartQuantity()
