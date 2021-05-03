@@ -171,7 +171,9 @@ a::before {
   .hamburger {
     display: block;
   }
-
+  .nav__container::after{
+    height: 60px;
+  }
  
 }
 

@@ -108,12 +108,12 @@
   margin-right: 10px;
 }
 .categoriaCheckbox input {
-  width: 195px;
+  width: 211px;
   
 }
 .checkbox {
   display: flex;
-  margin:0;
+  margin:0 0 0 0px;
   
 }
 .checkbox label{
