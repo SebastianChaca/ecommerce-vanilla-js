@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./Img/favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,100;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles/sidebar.css" />
+    <link rel="stylesheet" href="./styles/global_style.css" />
+    <link rel="stylesheet" href="./productDetail/productDetail.css" />
+    
+    <title>NUCBAR</title>
+  </head>
+  <body>
+    <div  id='backdrop' >
+    <aside class='sidebar' id='sidebar'>
+      <div class='sidebar-btn-close-container' >
+        <button class='sidebar-btn-close' id='btn_close'>
+          <img src="./Img/closeBtn.png" alt="X">
+          
+        </button>
+      </div>
+      <div class='logo_container'>
+        <!-- <img src="/Img/cigars.png" alt="cigars" /> -->
+        <h1>NUCBAR</h1>
+      </div>      
+      <ul>
+        <div>
+           <li>
+            <a  href='/'>Home</a>
+          </li>
+          <li>
+            <a class="pseudo" href="/login.html">Ingresar</a>
+          </li>
+          <li>
+            <a class="pseudo" href="/aboutus">About us</a>
+          </li>
+          <li>            
+            <a class="pseudo" href="#main__title"> Productos</a>        
+          </li>
+      
+        </div>
+      </ul>
+    </aside>
+  </div>
+
+
+    <div class="container">      
+      <div class="nav__container">
+        <nav class="navbar__content">
+          <img src="/Img/cigars.png" alt="cigars" />
+          <button class='hamburger' id='hamburger_btn'>
+            <img  src='/Img/hamburger3.png' alt='hamburger'>
+          </button>
+          <a class="pseudo" href="/login.html">Ingresar</a>
+          <a class="pseudo" href="/aboutus">About us</a>
+          <a class="pseudo" href="#main__title"> Productos</a>
+          <a id='username'>Username</a>
+          <button class='logout_btn' id='logoutBtn'>Logout</button>
+          
+            <button class='nav_btn'>
+              <div class='cart_quantity_container'> 
+                <p id='cart_quantity'>0</p>
+              </div>
+              <img  src="./Img/cart.png" alt="" /> 
+            </button>           
+          
+        </nav>
+      </div>
+      <div class="main__title" id='main__title'>
+        <h1 >Nuestros Productos</h1>
+        <hr />
+      </div>
+      <div class="noLoading" id="loading">
+        <h1>Cargando...</h1>
+        <img src="/Img/landaLoading.gif" alt="" />
+      </div>
+      
+      <div class='alert' id='alert'>
+        <img src="/Img/markIcon.png" alt="markicon">
+        <p id='alert_msg'></p>
+      </div>
+      <footer class="footer__content"></footer>
+    </div>
+    <script src="./productDetail/productDetail.js"></script>
+  </body>
+</html>
