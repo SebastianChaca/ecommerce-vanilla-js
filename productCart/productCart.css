@@ -42,6 +42,7 @@
 }
 .cart_remove button{
   border: none;
+  cursor: pointer;
 }
 .cart_remove img{
   width: 15px;
@@ -66,4 +67,10 @@
   padding: 10px;
   background-color: #3151ba;
   color: azure;
+}
+.cart_empty{
+  display:none;
+  text-align: center;
+  margin-top: 100px;
+  height: 200px;
 }
