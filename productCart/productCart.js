@@ -3,6 +3,7 @@ let cartStorage=localStorage.getItem('cart')? JSON.parse(localStorage.getItem('c
 let emptyCartElement=document.getElementById('cart_empty')
 let cartDetailElement=document.getElementById('cart_detail')
 let mainContainerELement=document.getElementById('main_container')
+
 function deleteProduct(id){ 
   cartStorage.forEach( (p, index )=> {
     if(p.id === id){
@@ -10,18 +11,24 @@ function deleteProduct(id){
     }
   })
   localStorage.setItem('cart', JSON.stringify(cartStorage))
-  let cardsContainer=document.getElementById('cart_main_container').getElementsByClassName("cart_container")  
-  while (cardsContainer.length > 0) {
-    cardsContainer[0].parentNode.removeChild(cardsContainer[0]);
+  let card= document.getElementById(id)
+  card.remove()
+  if( cartStorage.length === 0){
+    checkEmptyCart()
   }
-  createShoppingCart(cartStorage)  
+  // let cardsContainer=document.getElementById('cart_main_container').getElementsByClassName("cart_container")  
+  // while (cardsContainer.length > 0) {
+  //   cardsContainer[0].parentNode.removeChild(cardsContainer[0]);
+  // }
+  // createShoppingCart(cartStorage)  
 }
 
 function createCart(data){
   let cartContainer=document.createElement('div')
   cartContainer.className='cart_container'
+  cartContainer.id=data.id
   cartContainer.innerHTML=`
-    <div class='cart_image'>
+    <div class='cart_image' >
       <img src=${data.image ? data.image.url : data.imageFromDash} alt="product">
     </div>  
     <div class='cart_title'>
