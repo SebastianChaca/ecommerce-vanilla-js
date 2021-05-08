@@ -30,16 +30,18 @@
   transform: skewY(-3deg);
 }
 .navbar__content {
+ 
   width: 100%;
-  height: 100px;
+  height: 80px;
   display: grid;
-  grid-template-columns: 120px 200px 200px 300px 200px;
+  grid-template-columns: 120px 200px 200px 300px 200px ;
   position: relative;
   align-items: center;
   background-color: rgba(255, 255, 255, 0.253);
 }
 
 .navbar__content > img:first-of-type {
+  visibility: hidden;
   width: 55px;
   height: 55px;
   object-fit: cover;
@@ -64,7 +66,7 @@ a::before {
   width: 1px;
   position: absolute;
   right: 0;
-  top: 35px;
+  top: 30px;
   background-color: #fcf8f494;
 }
 .pseudo {
@@ -81,21 +83,27 @@ a::before {
   margin: auto;
   height: 3px;
   width: 0px;
-  top: 70px;
+  top: 60px;
   background: #bdd2b6;
   transition: all 0.4s linear;
 }
 .pseudo:hover::after {
   width: 50%;
 }
-
+.nav__container p{
+  justify-content: center;
+  align-items: center;
+  color: #fffefe;
+  font-size: 25px;
+  position: relative;
+}
 .navbar__content > a:hover {
   color: #d4dad2;
 }
 
 .nav_btn {
-  width: 65px;
-  height: 65px;
+  width: 55px;
+  height: 55px;
   position: absolute;
   right: 0;
   margin-right: 30px;
@@ -117,12 +125,15 @@ a::before {
 .nav_btn img:hover {
   opacity: 0.6;
 }
+/* .cart_quantity_container{
+  position: relative;
+} */
 .cart_quantity_container p{
   color: black;
-  font-size: 15px;
+  font-size: 13px;
   position: absolute;
   top:-8px;
-  left:40px;
+  left:28px;
  
 }
 .banner {
