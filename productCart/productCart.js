@@ -16,11 +16,7 @@ function deleteProduct(id){
   if( cartStorage.length === 0){
     checkEmptyCart()
   }
-  // let cardsContainer=document.getElementById('cart_main_container').getElementsByClassName("cart_container")  
-  // while (cardsContainer.length > 0) {
-  //   cardsContainer[0].parentNode.removeChild(cardsContainer[0]);
-  // }
-  // createShoppingCart(cartStorage)  
+  
 }
 
 function createCart(data){
@@ -43,7 +39,7 @@ function createCart(data){
       <p>${data.quantity}</p>
     </div>
     <div class='cart_price'>
-      <p>$${data.price}</p>
+      <p>$${data.descuento ? data.price * 0.8 : data.price}</p>
     </div>
     <div class='cart_remove'>
     <button onclick={deleteProduct('${data.id}')}>

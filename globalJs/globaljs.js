@@ -6,6 +6,7 @@ let sidebar=document.getElementById('sidebar')
 let closeSibarBtn=document.getElementById('btn_close')
 let ingresarElement=document.getElementById('ingresar')
 let navContainerElement=document.querySelector('.navbar__content')
+let cartBtn=document.getElementById('nav_btn')
 function openSidebar(){
   backdropModal.className='backdrop'
   sidebar.className='sidebar show-sidebar'
@@ -44,6 +45,9 @@ function getCartQuantity(){
   }
 }
 
+cartBtn.addEventListener('click', ()=>{
+  window.location.href='/productcart.html'
+})
 
 document.addEventListener('DOMContentLoaded', getCartQuantity(), getUser())
 hambugerBtn.addEventListener('click', ()=>openSidebar())
