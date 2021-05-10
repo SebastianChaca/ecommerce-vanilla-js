@@ -14,10 +14,16 @@ const leftBtn=document.getElementById('leftArrow')
 const addToCart=document.getElementById('addToCart')
 const quantityContainerElement=document.getElementById('quantity_container')
 const noStock=document.getElementById('no_stock')
+const cartQuantity=document.getElementById('cart_quantity')
 let quantity=productQuantity ? productQuantity.quantity : 1
 let totalPrice=productQuantity? productQuantity.quantity * productDetail.price : productDetail.price 
 function sumarItem(){
   if (quantity < productDetail.stock ){
+  //   let totalQuantity= 0
+  //  productCart.forEach(prod =>{
+  //     totalQuantity= totalQuantity + prod.quantity
+  //   })
+  //   cartQuantity.innerHTML=`${totalQuantity + quantity}`
     quantity= quantity +1
     totalPrice= quantity * productDetail.price
     quantityElement.innerText=`${quantity}`
@@ -29,6 +35,7 @@ function restarItem(){
     quantity= quantity -1
     totalPrice= quantity * productDetail.price
     quantityElement.innerText=`${quantity}`
+    cartQuantity.innerHTML=`${quantity}`
     totalPriceElement.innerText=`$${totalPrice }`
   }
 }
