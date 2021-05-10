@@ -92,5 +92,8 @@
     width: 230px;
     margin-left: 0;
   }
+  .cart_remove button{
+    margin-left: 5px;
+  }
   
 }
