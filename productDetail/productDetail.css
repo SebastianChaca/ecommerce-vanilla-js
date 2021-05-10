@@ -149,6 +149,10 @@ hr{
   letter-spacing: 3px;
   font-weight: 100;
 }
+.no_stock{
+  color: #970747 ;
+  visibility: hidden;
+}
 
 @media (max-width: 800px){
   .product_main_container{

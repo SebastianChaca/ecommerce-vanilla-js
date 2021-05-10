@@ -12,6 +12,8 @@ const totalPriceElement=document.getElementById('product_totalPRice')
 const righBtn=document.getElementById('rigthArrow')
 const leftBtn=document.getElementById('leftArrow')
 const addToCart=document.getElementById('addToCart')
+const quantityContainerElement=document.getElementById('quantity_container')
+const noStock=document.getElementById('no_stock')
 let quantity=productQuantity ? productQuantity.quantity : 1
 let totalPrice=productQuantity? productQuantity.quantity * productDetail.price : productDetail.price 
 function sumarItem(){
@@ -55,6 +57,11 @@ leftBtn.addEventListener('click', restarItem)
 
 console.log(productDetail.descuento)
 document.addEventListener('DOMContentLoaded', ()=>{
+  if (productDetail.stock < 1){
+    quantityContainerElement.style.display='none'
+    noStock.style.visibility='visible'
+    addToCart.style.display='none'
+  }
   console.log(productDetail)  
   titleElement.innerHTML=`${productDetail.title}`
   shortTitleElement.innerHTML=`${productDetail.shortDescription}`
