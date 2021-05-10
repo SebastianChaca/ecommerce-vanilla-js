@@ -1,3 +1,9 @@
+let activeElement = document.getElementById('pLink')
+console.log(activeElement)
+function activeLink(){
+  activeElement.id='currentLink'
+}
+
 function getCartQuantity(){
   const cartStorage= localStorage.getItem('cart')? JSON.parse(localStorage.getItem('cart')): []
   let cartQuantityElement=document.getElementById('cart_quantity')
@@ -199,7 +205,7 @@ function createSections(r) {
   createProduct(filterArray(r, 'Whisky'),  'product__whiskys','Whikys');
   createProduct(filterArray(r, 'Puro'), 'product__puros','Puros');
 }
-
+activeElement.addEventListener('click', ()=>activeLink())
 getProducts().then((r) => createSections(r)).then(()=>loadingFinish());
 
 
