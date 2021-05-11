@@ -54,20 +54,26 @@
   margin: 70px 0 130px 10px;
   background-color: #dadbdf;
   border-radius: 10px;
+  letter-spacing: 2px;
   box-shadow: 10px 10px 10px 2px rgba(0,0,0,0.07);
   
  
 }
 .cart_detail h2{
   margin-top: 0;
+  text-align: center;
 }
 .cart_detail button{
   border: none;
   border-radius: 5px;
   padding: 10px;
+  width: 210px;
+  height: 40px;
   background-color: #3151ba;
-  box-shadow: 10px 10px 10px 2px rgba(0,0,0,0.07);
+  box-shadow: 10px 10px 10px 2px rgba(0,0,0,0.15);
   color: azure;
+  letter-spacing: 3px;
+  font-size: 18px;
 }
 .cart_empty{
   display:none;
@@ -85,15 +91,18 @@
   .cart_container{
     grid-template-columns: 70px 110px 30px 50px 60px;
     height: 110px;
-    margin-right: 20px;
-    width: 95%;    
+    
+    width: 100%;    
   }
   .cart_detail{
     width: 230px;
-    margin-left: 0;
+    margin-left: 0;   
+  }
+  .cart_detail button{
+    width: 230px;
   }
   .cart_remove button{
-    margin-left: 5px;
+    margin-left: 10px;
   }
   
 }
