@@ -3,6 +3,8 @@ let cartStorage=localStorage.getItem('cart')? JSON.parse(localStorage.getItem('c
 let emptyCartElement=document.getElementById('cart_empty')
 let cartDetailElement=document.getElementById('cart_detail')
 let mainContainerELement=document.getElementById('main_container')
+let cartDetailQuantity=document.getElementById('cart_detail_quantity')
+let cartDetailTotal=document.getElementById('cart_detail_total')
 
 function deleteProduct(id){ 
   cartStorage.forEach( (p, index )=> {
@@ -13,6 +15,7 @@ function deleteProduct(id){
   localStorage.setItem('cart', JSON.stringify(cartStorage))
   let card= document.getElementById(id)
   card.remove()
+  getCartDetail()
   if( cartStorage.length === 0){
     checkEmptyCart()
   }
@@ -64,5 +67,15 @@ function createShoppingCart(data){
     checkEmptyCart()
   }
 }
-document.addEventListener('DOMContentLoaded', createShoppingCart(cartStorage))
+function getCartDetail(){
+  let totalQuantity= 0
+  let totalPrice=0
+   cartStorage.forEach(prod =>{
+      totalQuantity= totalQuantity + prod.quantity
+      totalPrice= prod.descuento ? totalPrice + prod.price * prod.quantity * 0.8 : totalPrice + prod.price * prod.quantity
+    })
+    cartDetailQuantity.innerHTML=`Cantidad de items: ${totalQuantity}`
+    cartDetailTotal.innerHTML=`Total: $${totalPrice}`
+}
+document.addEventListener('DOMContentLoaded', createShoppingCart(cartStorage), getCartDetail())
 
