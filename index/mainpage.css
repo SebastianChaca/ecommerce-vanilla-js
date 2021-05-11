@@ -456,6 +456,15 @@ p {
 .logout_btn:hover{
   color: #d4dad2;
 }
+.btn_cart_disabled{
+  background-color:#6097e4;
+  box-shadow: none;
+  cursor:not-allowed;
+}
+.btn_cart_disabled:hover{
+  box-shadow: none;
+}
+
 
 @media (max-width: 1100px) {
   .btns__card {

@@ -78,7 +78,7 @@ function createCard(product, gallery){
     }</h6>
   </div>
   <div class="btns__card">
-    <button class="btn__cart" onclick={addToCart('${product.id}')}>
+    <button class="btn__cart ${product.stock < 1 ? 'btn_cart_disabled' : ''}" onclick={addToCart('${product.id}')} ${product.stock < 1 ? 'disabled' : null}>
       <img src="/Img/miniShopIcon.png" alt="shop icon" /> <p>AGREGAR</p> 
     </button>
     <button class="btn__detail" onclick={addToDetail('${product.id}')}>
