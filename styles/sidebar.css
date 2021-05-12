@@ -59,7 +59,7 @@
   
 }
 
-.sidebar a, button {
+.sidebar a, .sidebar button {
   font-size: 25px;
   display: flex;
   align-items: center; 
@@ -88,7 +88,7 @@
 #li_logout{
   display: none;
 }
-.logout button{
+.logout_sidebar button{
   border: none;
   background-color: transparent;
   

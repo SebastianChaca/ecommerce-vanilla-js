@@ -2,9 +2,18 @@ body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
   background-color: #efefef;
+  animation: fadeInFromNone 0.3s ;
 }
 
 .container {
   width: 100%;
 }
 
+@keyframes fadeInFromNone {
+  0% { opacity: 0; }
+  20% { opacity: 0; }
+  40% { opacity: 0.3; }
+  60% { opacity: 0.5; }
+  80% { opacity: 0.9; }
+  100% { opacity: 1; }
+}
