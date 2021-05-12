@@ -7,6 +7,9 @@ let closeSibarBtn=document.getElementById('btn_close')
 let ingresarElement=document.getElementById('ingresar')
 let navContainerElement=document.querySelector('.navbar__content')
 let cartBtn=document.getElementById('nav_btn')
+let logOutSidebar=document.getElementById('li_logout')
+let loginSidebar=document.getElementById('login_sidebar')
+let logOutBtnSidebar=document.getElementById('logout_sidebar')
 function openSidebar(){
   backdropModal.className='backdrop'
   sidebar.className='sidebar show-sidebar'
@@ -23,9 +26,13 @@ function getUser(){
     ingresarElement.style.display='none'
     logOutBtn.style.display='block'
     navContainerElement.style.gridTemplateColumns='120px 200px 200px 300px 200px'
+    loginSidebar.style.display='none'
+    logOutSidebar.style.display='block'
   }else{
     userName.style.display='none'
     ingresarElement.style.display='flex'
+    loginSidebar.style.display='flex'
+    logOutSidebar.style.display='none'
   }
 
 }
@@ -44,6 +51,15 @@ function getCartQuantity(){
     cartQuantityElement.innerHTML=`${totalQuantity}`
   }
 }
+function logOut(){
+  localStorage.removeItem('user')
+  logOutBtn.style.display='none'
+  userName.style.display='none'
+  ingresarElement.style.display='flex'
+  navContainerElement.style.gridTemplateColumns='120px 200px 200px 200px'
+  loginSidebar.style.display='flex'
+  logOutSidebar.style.display='none'
+}
 
 cartBtn.addEventListener('click', ()=>{
   window.location.href='/productcart.html'
@@ -54,11 +70,5 @@ hambugerBtn.addEventListener('click', ()=>openSidebar())
 closeSibarBtn.addEventListener('click', ()=>closeSibar())
 backdropModal.addEventListener('click', ()=>closeSibar())
 
-
-logOutBtn.addEventListener('click', ()=>{
-  localStorage.removeItem('user')
-  logOutBtn.style.display='none'
-  userName.style.display='none'
-  ingresarElement.style.display='flex'
-  navContainerElement.style.gridTemplateColumns='120px 200px 200px 200px'
-})
+logOutBtnSidebar.addEventListener('click', ()=>logOut())
+logOutBtn.addEventListener('click', ()=>logOut())
