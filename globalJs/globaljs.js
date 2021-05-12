@@ -10,6 +10,8 @@ let cartBtn=document.getElementById('nav_btn')
 let logOutSidebar=document.getElementById('li_logout')
 let loginSidebar=document.getElementById('login_sidebar')
 let logOutBtnSidebar=document.getElementById('logout_sidebar')
+let btnComprarDetail=document.getElementById('comprar_btn')
+let loginDetail=document.getElementById('login_detail')
 function openSidebar(){
   backdropModal.className='backdrop'
   sidebar.className='sidebar show-sidebar'
@@ -28,12 +30,17 @@ function getUser(){
     navContainerElement.style.gridTemplateColumns='120px 200px 200px 300px 200px'
     loginSidebar.style.display='none'
     logOutSidebar.style.display='block'
+    btnComprarDetail.style.display='block'
+    loginDetail.style.display='none'
+    
   }else{
     userName.style.display='none'
     ingresarElement.style.display='flex'
     loginSidebar.style.display='flex'
     logOutSidebar.style.display='none'
     navContainerElement.style.gridTemplateColumns='120px 200px 200px 200px'
+    btnComprarDetail.style.display='none'
+    loginDetail.style.display='block'
   }
 
 }

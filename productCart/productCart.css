@@ -82,6 +82,9 @@
   margin-bottom: 150px;
   height: 200px;
 }
+#login_detail{
+  display:none
+}
 
 @media (max-width: 800px){
   .main_container{
