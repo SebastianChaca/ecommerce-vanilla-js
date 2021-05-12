@@ -1,11 +1,14 @@
+a{
+  text-decoration: none;
+  color: azure;
+}
+
 .footer__content{
   width: 100%;
   height: 250px;
   background-color: #5f072f;
   box-shadow: inset 0px 0px 16px 4px rgba(46, 45, 45, 0.40);
-  box-shadow: 0px 0px 13px 4px rgba(0,0,0,0.49);
- 
-  
+  box-shadow: 0px 0px 13px 4px rgba(0,0,0,0.49); 
   
 }
 .footer{
@@ -14,6 +17,7 @@
   width: 100%;
   padding-top: 40px;
   justify-content: center;
+  align-items: flex-start;
   
  
 }
@@ -26,6 +30,12 @@
   color: azure;
   margin-bottom: 10px;
   letter-spacing: 3px;
+  display: flex;
+  align-items: center;
+}
+.footer p{
+  color: azure;
+  margin: 10px 0;
 }
 
 .map{
@@ -35,6 +45,19 @@
   /* margin: 10px auto; */
   box-shadow: 3px -5px 20px 2px rgba(0,0,0,0.57);
 }
+.linkedin_icon{
+  width: 40px;
+  margin: 0 8px 5px 0px;
+}
+.github_icon{
+  width: 30px;
+  margin: 0 10px 5px 5px;
+}
+.portfolio_icon{
+  width: 35px;
+  margin: 0 10px 5px 2px;
+}
+
 @media (max-width: 650px){
   .footer{
     display: block;

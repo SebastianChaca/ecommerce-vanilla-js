@@ -6,6 +6,23 @@ let mainContainerELement=document.getElementById('main_container')
 let cartDetailQuantity=document.getElementById('cart_detail_quantity')
 let cartDetailTotal=document.getElementById('cart_detail_total')
 
+let cartQuantityElement=document.getElementById('cart_quantity')
+
+function updateCartQuantity(){
+  const cartStorage= localStorage.getItem('cart')? JSON.parse(localStorage.getItem('cart')): []
+  
+  if (cartStorage.length < 1){
+    cartQuantityElement.innerHTML='0'
+  }else{
+    let totalQuantity= 0
+    cartStorage.forEach(prod =>{
+      totalQuantity= totalQuantity + prod.quantity
+    })
+    
+    cartQuantityElement.innerHTML=`${totalQuantity}`
+  }
+}
+
 function deleteProduct(id){ 
   cartStorage.forEach( (p, index )=> {
     if(p.id === id){
@@ -16,6 +33,7 @@ function deleteProduct(id){
   let card= document.getElementById(id)
   card.remove()
   getCartDetail()
+  updateCartQuantity()
   if( cartStorage.length === 0){
     checkEmptyCart()
   }
