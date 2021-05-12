@@ -83,7 +83,12 @@
   height: 200px;
 }
 #login_detail{
-  display:none
+  display:none;
+  
+  
+}
+#login_detail button{
+  cursor: pointer;
 }
 
 @media (max-width: 800px){

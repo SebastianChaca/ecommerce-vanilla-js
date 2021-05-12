@@ -67,6 +67,8 @@ function logOut(){
   logOutSidebar.style.display='none'
   loginSidebar.style.display='flex'
   navContainerElement.style.gridTemplateColumns='120px 200px 200px 200px'
+  btnComprarDetail.style.display='none'
+    loginDetail.style.display='block'
 }
 
 cartBtn.addEventListener('click', ()=>{
