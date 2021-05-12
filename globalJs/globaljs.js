@@ -33,6 +33,7 @@ function getUser(){
     ingresarElement.style.display='flex'
     loginSidebar.style.display='flex'
     logOutSidebar.style.display='none'
+    navContainerElement.style.gridTemplateColumns='120px 200px 200px 200px'
   }
 
 }
@@ -56,9 +57,9 @@ function logOut(){
   logOutBtn.style.display='none'
   userName.style.display='none'
   ingresarElement.style.display='flex'
-  navContainerElement.style.gridTemplateColumns='120px 200px 200px 200px'
-  loginSidebar.style.display='flex'
   logOutSidebar.style.display='none'
+  loginSidebar.style.display='flex'
+  navContainerElement.style.gridTemplateColumns='120px 200px 200px 200px'
 }
 
 cartBtn.addEventListener('click', ()=>{
