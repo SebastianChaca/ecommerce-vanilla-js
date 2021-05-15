@@ -116,6 +116,16 @@ async function getProducts() {
     return error;
   }
 }
+async function getSections(){
+  try {
+    const response = await fetch('http://localhost:1337/sections')
+    return response.json();
+  } catch (error) {
+    loadingFinish();
+    handleError()
+    return error;
+  }
+}
 
 function filterArray(products, type) {
   if (type === 'descuento') {
