@@ -108,8 +108,9 @@ async function getProducts() {
   localStorage.removeItem('productos-api') 
   try {
     const response = await fetch('http://localhost:1337/products');
-    
-    return response.json();
+    const res= await response.json()
+    localStorage.setItem('productos-api', JSON.stringify(res))  
+    return res
   } catch (error) {
     loadingFinish();
     handleError()
@@ -204,7 +205,7 @@ function createProduct(products, id,titleContent) {
   container.appendChild(cardContainer);
 }
 function createSections(r) {
-  localStorage.setItem('productos-api', JSON.stringify(r))  
+  
   getSections().then( s => s.map(section =>{
     createProduct(filterArray(r, section.Categoria), section.id, section.Titulo)
   })).then(loadingFinish())  
