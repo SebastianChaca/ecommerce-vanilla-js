@@ -30,17 +30,20 @@ function getUser(){
     navContainerElement.style.gridTemplateColumns='120px 200px 200px 300px 200px'
     loginSidebar.style.display='none'
     logOutSidebar.style.display='block'
-    btnComprarDetail.style.display='block'
-    loginDetail.style.display='none'
-    
+    if (btnComprarDetail && loginDetail){
+      loginDetail.style.display='none'
+      btnComprarDetail.style.display='block'
+    }
   }else{
     userName.style.display='none'
     ingresarElement.style.display='flex'
     loginSidebar.style.display='flex'
     logOutSidebar.style.display='none'
     navContainerElement.style.gridTemplateColumns='120px 200px 200px 200px'
-    btnComprarDetail.style.display='none'
-    loginDetail.style.display='block'
+    if(btnComprarDetail && loginDetail){
+      loginDetail.style.display='block'
+      btnComprarDetail.style.display='none'
+    }
   }
 
 }

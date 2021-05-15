@@ -204,19 +204,13 @@ function createProduct(products, id,titleContent) {
   container.appendChild(cardContainer);
 }
 function createSections(r) {
-  localStorage.setItem('productos-api', JSON.stringify(r))
-  
-  createProduct(
-    filterArray(r, 'descuento'),
-    'product__descuento',
-    'Productos en descuento'
-  ),
-  createProduct(filterArray(r, 'novedad'),'product__novedad', 'Novedades');
-  createProduct(filterArray(r, 'Whisky'),  'product__whiskys','Whikys');
-  createProduct(filterArray(r, 'Puro'), 'product__puros','Puros');
+  localStorage.setItem('productos-api', JSON.stringify(r))  
+  getSections().then( s => s.map(section =>{
+    createProduct(filterArray(r, section.Categoria), section.id, section.Titulo)
+  })).then(loadingFinish())  
 }
 activeElement.addEventListener('click', ()=>activeLink())
-getProducts().then((r) => createSections(r)).then(()=>loadingFinish());
+getProducts().then((r) => createSections(r))
 
 
 
