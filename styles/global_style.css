@@ -2,7 +2,7 @@ body {
   margin: 0;
   font-family: 'Roboto', sans-serif;
   background-color: #efefef;
-  animation: fadeInFromNone 0.6s ;
+  animation: fadeInFromNone 0.3s ;
 }
 
 .container {

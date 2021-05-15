@@ -208,7 +208,7 @@ function createSections(r) {
   
   getSections().then( s => s.map(section =>{
     createProduct(filterArray(r, section.Categoria), section.id, section.Titulo)
-  })).then(loadingFinish())  
+  })).then(()=>loadingFinish())  
 }
 activeElement.addEventListener('click', ()=>activeLink())
 getProducts().then((r) => createSections(r))
