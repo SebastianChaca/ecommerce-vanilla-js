@@ -10,8 +10,8 @@
       rel="stylesheet"
     />
     <link rel="icon" type="image/png" sizes="32x32" href="./Img/favicon-32x32.png">
-    <link rel="stylesheet" href="./dashboard/dashboard.css">
-    <link rel="stylesheet" href="./dashboard/sidebar.css">
+    <link rel="stylesheet" href="./dashboard.css">
+    <link rel="stylesheet" href="./sidebar.css">
   <title>Dashboard</title>
 </head>
 <body>
@@ -23,17 +23,17 @@
       </div>
       <h5>ADMIN</h5>
       <ul>
-        <li class='current'>        
-         <img src="/Img/dashboard/shoppingcart.png" alt="product icon">Products        
+        <li >        
+         <a href="/dashboard.html"><img src="/Img/dashboard/shoppingcart.png" alt="product icon">Products</a>        
+        </li>
+        <li class='current' >
+           <img src="/Img/dashboard/todo.png" alt="add product icon">Sections  
         </li>
         <li>
           <a href=""> <img src="/Img/dashboard/userIcon.png" alt="user icon">Users</a>      
         </li>
-        <li>
+        <li >
           <a href="/dashboard/createproduct.html"> <img src="/Img/dashboard/addIcon.png" alt="add product icon">Add Product</a>  
-        </li>
-        <li>
-          <a href="/dashboard/addSection.html"> <img src="/Img/dashboard/addIcon.png" alt="add product icon">Add Section</a>  
         </li>
   
       </ul>
@@ -46,26 +46,20 @@
       </ul>
     </div>
     <div class='noLoading' id="loading">
-      <img src="./Img/dashboard/loading.gif" alt="">
+      <img src="/Img/dashboard/loading.gif" alt="loading">
     </div>
-   <div class='table_container'>
-     
+   
+  <div class='table_container'>     
     <table class="table" id='table'>
       <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">Nombre</th>
-          <th scope="col">Precio</th>
-          <th scope="col">Stock</th>
-          <th scope="col">Categoría</th>          
-          <th scope="col">Rate</th>
-          <th scope="col">Novedad</th>
-          <th scope="col">Descuento</th>
-          <th scope="col">Opciones</th>          
+          <th scope="col">Título</th>
+          <th scope="col">Categoría</th>
+          <th scope="col">Opciones</th>                   
         </tr>
       </thead>
-      <tbody id='tbody'>
-       
+      <tbody id='tbody'>       
       </tbody>
     </table>
    </div>
@@ -85,6 +79,6 @@
     <p id='alert_msg'></p>
   </div>
   
-  <script src="./dashboard/dashboard.js"></script>
+  <script src="./addSection.js"></script>
 </body>
 </html>

@@ -1,16 +1,12 @@
 function loadingStart() {
   let loading = document.getElementById('loading');
   let tableContainer= document.querySelector('.table_container')
-  let sidebar= document.querySelector('.sidebar')
-  sidebar.style.height='100vh'
   tableContainer.style.display='none'
   loading.className = 'loading';
 }
 function loadingFinish() {
   let loading = document.getElementById('loading');
-  let tableContainer= document.querySelector('.table_container')
-  let sidebar= document.querySelector('.sidebar')
-  sidebar.style.height=''
+  let tableContainer= document.querySelector('.table_container') 
   tableContainer.style.display='flex'
   loading.className = 'noLoading';
 }
