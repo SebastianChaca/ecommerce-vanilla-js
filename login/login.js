@@ -37,7 +37,7 @@ function stopLoading(){
 async function logIn(identifier, password){
   starLoading()
   try {
-    const response = await fetch('http://localhost:1337/auth/local',{
+    const response = await fetch('https://api-nucba.herokuapp.com/auth/local',{
       method:'POST',
       body: JSON.stringify({
         identifier,
