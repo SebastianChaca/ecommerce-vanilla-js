@@ -1,5 +1,6 @@
-let productMainContainer=document.getElementById('cart_main_container')
 let cartStorage=localStorage.getItem('cart')? JSON.parse(localStorage.getItem('cart')):[]
+let userStorage=localStorage.getItem('user')? JSON.parse(localStorage.getItem('user')):[]
+let productMainContainer=document.getElementById('cart_main_container')
 let emptyCartElement=document.getElementById('cart_empty')
 let cartDetailElement=document.getElementById('cart_detail')
 let mainContainerELement=document.getElementById('main_container')
@@ -8,18 +9,28 @@ let cartDetailTotal=document.getElementById('cart_detail_total')
 let cartQuantityElement=document.getElementById('cart_quantity')
 let comprarBtnElement=document.getElementById('comprar_btn')
 
+function getCartTotalQuantity(cart){
+  let totalQuantity= 0
+    cart.forEach(prod =>{
+      totalQuantity= totalQuantity + prod.quantity
+    })
+    return totalQuantity
+}
+function getCartTotalPrice(cart){
+  let totalPrice=0
+  cart.forEach(prod =>{      
+      totalPrice= prod.descuento ? totalPrice + prod.price * prod.quantity * 0.8 : totalPrice + prod.price * prod.quantity
+  })
+  return totalPrice
+}
+
 function updateCartQuantity(){
   const cartStorage= localStorage.getItem('cart')? JSON.parse(localStorage.getItem('cart')): []
   
   if (cartStorage.length < 1){
     cartQuantityElement.innerHTML='0'
-  }else{
-    let totalQuantity= 0
-    cartStorage.forEach(prod =>{
-      totalQuantity= totalQuantity + prod.quantity
-    })
-    
-    cartQuantityElement.innerHTML=`${totalQuantity}`
+  }else{    
+    cartQuantityElement.innerHTML=`${getCartTotalQuantity(cartStorage)}`
   }
 }
 
@@ -85,15 +96,46 @@ function createShoppingCart(data){
     checkEmptyCart()
   }
 }
-function getCartDetail(){
-  let totalQuantity= 0
-  let totalPrice=0
-   cartStorage.forEach(prod =>{
-      totalQuantity= totalQuantity + prod.quantity
-      totalPrice= prod.descuento ? totalPrice + prod.price * prod.quantity * 0.8 : totalPrice + prod.price * prod.quantity
+function getCartDetail(){  
+    cartDetailQuantity.innerHTML=`Cantidad de items: ${getCartTotalQuantity(cartStorage)}`
+    cartDetailTotal.innerHTML=`Total: $${ getCartTotalPrice(cartStorage)}`
+}
+function cleanCart(cart){
+  const items= cart.map( cart =>{
+    delete cart.image
+    delete cart.imageFromDash
+    delete cart.shortDescription
+    delete cart.description 
+    delete cart.stock 
+    delete cart.rate
+    delete cart.novedad
+    delete cart.__v
+    if (cart.descuento){
+      parseInt(cart.price) * 0.8
+    }
+    return cart
+  })
+  return items
+}
+async function createOrder(items, total, token){
+  try {
+    const response = await fetch('http://localhost:1337/orders',{
+      method:'POST',
+      headers:{
+        Authorization: `Bearer ${token}`
+      },
+      body:JSON.stringify({items, total})
     })
-    cartDetailQuantity.innerHTML=`Cantidad de items: ${totalQuantity}`
-    cartDetailTotal.innerHTML=`Total: $${totalPrice}`
+    return response.json()
+  } catch (error) {
+    console.log(error)
+  }
 }
 document.addEventListener('DOMContentLoaded', createShoppingCart(cartStorage), getCartDetail())
-comprarBtnElement.addEventListener('click', ()=>console.log('comprado lince'))
+comprarBtnElement.addEventListener('click', ()=>{
+  const items= cleanCart(cartStorage)
+  const total= getCartTotalPrice(cartStorage)
+ 
+  createOrder(items, total, userStorage.token)
+  
+})
