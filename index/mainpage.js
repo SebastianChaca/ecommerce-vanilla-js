@@ -194,7 +194,9 @@ function createProduct(products, id,titleContent) {
   <h4 id='mostrarMas__Title'>Mostrar más...</h4>
   <img id=${imgId} src="/Img/arrowDown.png" alt="" />
   `;
-  seeMoreBtn.appendChild(btnMore);
+  if(products.length >3){
+    seeMoreBtn.appendChild(btnMore);
+  }
   
   products.slice(0,4).forEach((product) => {   
     createCard(product, card, id)    
