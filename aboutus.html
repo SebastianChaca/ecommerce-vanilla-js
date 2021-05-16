@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./Img/favicon-32x32.png">
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,100;1,300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital@1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles/sidebar.css" />
+    <link rel="stylesheet" href="./styles/navbarShort.css" />
+    <link rel="stylesheet" href="./styles/global_style.css" />
+    <link rel="stylesheet" href="./productCart/productCart.css" />
+    <link rel="stylesheet" href="./styles/footer.css"/>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
+    
+    <title>NUCBAR</title>
+  </head>
+  <body>
+  <div  id='backdrop' >
+    <aside class='sidebar' id='sidebar'>
+      <div class='sidebar-btn-close-container' >
+        <button class='sidebar-btn-close' id='btn_close'>
+          <img src="./Img/closeBtn.png" alt="X">
+          
+        </button>
+      </div>
+      <div class='logo_container'>
+        <!-- <img src="/Img/cigars.png" alt="cigars" /> -->
+        <h1>NUCBAR</h1>
+      </div>      
+      <ul>
+        <div>
+           <li>
+            <a  href='/'>Home</a>
+          </li>
+          <li>
+            <a  href="/aboutus">About us</a>
+          </li>
+          <li>            
+            <a  href="#main__title"> Productos</a>        
+          </li>               
+          <li id='login_sidebar'>
+            <a  href="/login.html">Ingresar</a>
+          </li>
+          <li class='logout' id='li_logout'>
+            <button id='logout_sidebar'>Log out</button>
+          </li>
+        </div>
+      </ul>
+    </aside>
+  </div>
+   
+  <div class="container">      
+    <div class="nav__container">
+    <nav class="navbar__content">
+      <img src="/Img/cigars.png" alt="cigars" />
+      <button class='hamburger' id='hamburger_btn'>
+        <img  src='/Img/hamburger3.png' alt='hamburger'>
+      </button>
+      <a class="pseudo" href="/aboutus"><p id='currentLink' >About us</p></a>
+      <a class="pseudo" href="/index.html"> Productos</a>
+      <a id='username'>Username</a>
+      <a class="pseudo" href="/login.html" id='ingresar'>Ingresar</a>
+      <a ><button class='logout_btn' id='logoutBtn'>Logout</button></a>       
+      <button class='nav_btn' id='nav_btn'>
+        <div class='cart_quantity_container'> 
+          <p id='cart_quantity'>0</p>
+        </div>
+        <img  src="./Img/cart.png" alt="" /> 
+      </button>     
+    </nav>
+  </div>
+      
+  
+  <div class='compra_exitosa'>
+    <h1>About us</h1>
+  </div>
+
+  <footer class="footer__content">
+    <div class='footer'>
+      <div>
+        <ul>
+          <li>
+            <img class='linkedin_icon' src='./Img/footer/linkedIn_PNG38.png'/>
+            <a href="https://www.linkedin.com/in/sebastianchaca/" target="_blank">LinkedIn </a>
+          </li>
+          <li>
+            <img class='github_icon' src='./Img/footer/github.png'/>
+            <a href="https://github.com/SebastianChaca" target="_blank">Github </a>
+          </li>
+          <li>
+            <img class='portfolio_icon' src='./Img/footer/kisspng-computer-icons-page-icon-design-brief-5b46e74ce63a76.929270671531373388943.png'/>
+            <a href="https://sebastianchaca.me/" target="_blank">Portfolio </a>
+          </li>
+          
+        </ul>
+      </div>
+      <div>
+        <ul>
+          <li>
+           <p> © Sebastian Chaca</p>
+          </li>          
+        </ul>
+      </div>
+      <ul>
+        <li>
+          <div id='map' class='map'></div>            
+        </li>
+      </ul>
+      
+    </div>
+  </footer>
+    
+    <script src="./globalJs/globaljs.js"></script>
+    <script src='/globalJs/mapbox.js'></script>
+  </body>
+</html>
