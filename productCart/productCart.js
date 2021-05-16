@@ -9,6 +9,27 @@ let cartDetailTotal=document.getElementById('cart_detail_total')
 let cartQuantityElement=document.getElementById('cart_quantity')
 let comprarBtnElement=document.getElementById('comprar_btn')
 
+function starLoading(){  
+  comprarBtnElement.style.backgroundColor='rgb(190, 203, 226)'
+  comprarBtnElement.disabled=true
+  let imgElement=document.createElement('img')
+  imgElement.id='imgBtn'
+  imgElement.src='../Img/dashboard/loading.gif'
+  comprarBtnElement.innerHTML=''
+  comprarBtnElement.appendChild(imgElement)
+}
+
+function stopLoading(){
+ 
+  let btnImage=document.getElementById('imgBtn')
+  comprarBtnElement.removeChild(btnImage)
+  comprarBtnElement.innerHTML='Comprar'
+  comprarBtnElement.disabled=false
+  comprarBtnElement.style.backgroundColor='rgb(49, 81, 186)'
+}
+
+
+
 function getCartTotalQuantity(cart){
   let totalQuantity= 0
     cart.forEach(prod =>{
@@ -23,7 +44,9 @@ function getCartTotalPrice(cart){
   })
   return totalPrice
 }
-
+function clearCart(){
+  localStorage.removeItem('cart')
+}
 function updateCartQuantity(){
   const cartStorage= localStorage.getItem('cart')? JSON.parse(localStorage.getItem('cart')): []
   
@@ -105,8 +128,7 @@ function cleanCart(cart){
     delete cart.image
     delete cart.imageFromDash
     delete cart.shortDescription
-    delete cart.description 
-    delete cart.stock 
+    delete cart.description    
     delete cart.rate
     delete cart.novedad
     delete cart.__v
@@ -117,7 +139,23 @@ function cleanCart(cart){
   })
   return items
 }
+const updateStock=(cart) => {   
+ cart.forEach(async product => {
+    
+    let Stock= parseInt(product.stock) - product.quantity
+    console.log(product)
+      const response =await fetch(`http://localhost:1337/products/${product.id}`,{
+        method:'PUT',
+        body:JSON.stringify({stock: Stock}),
+        headers: {
+          'Content-Type': 'application/json'        
+        }      
+    })  
+    return response.json()        
+  })       
+}
 async function createOrder(items, total, token){
+  starLoading()
   try {
     const response = await fetch('http://localhost:1337/orders',{
       method:'POST',
@@ -137,5 +175,9 @@ comprarBtnElement.addEventListener('click', ()=>{
   const total= getCartTotalPrice(cartStorage)
  
   createOrder(items, total, userStorage.token)
+    .then(()=>updateStock(cartStorage))
+    .then(()=>stopLoading())
+    .then(()=> clearCart())
+    .then(()=> window.location.href='/comprafinalizada.html')
   
 })
