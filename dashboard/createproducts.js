@@ -113,7 +113,7 @@ document.querySelector('#form').addEventListener('submit', (e)=>{
       shortDescrition: shorDescription.value,
       novedad: novedad.value,
       descuento: descuento.value,
-      imageFromDash: r.url
+      imageFromDash: r? r.url : null
     }     
      return producto    
    }).then((producto)=>createProduct(producto)).then(()=>{

@@ -15,6 +15,9 @@
   <title>Document</title>
 </head>
 <body>
+  <div>
+
+ 
   <div class='main_container'>
     <div class='sidebar'>
       <div>
@@ -33,9 +36,9 @@
           <a href=""> <img src="/Img/dashboard/userIcon.png" alt="user icon">Users</a>      
         </li>
         <li >
-          <a href="/dashboard/createproduct.html"><img src="/Img/dashboard/addIcon.png" alt="add product icon">Add Product  </a> 
+           <img src="/Img/dashboard/addIcon.png" alt="add product icon">Add Product  
         </li>
-        <li >
+        <li class='current'>
           <img src="/Img/dashboard/addIcon.png" alt="add product icon">Add Section 
         </li>
   
@@ -53,48 +56,19 @@
     <div class='form_container'> 
       <div class='title'>
 
-        <h1>Editar Producto</h1>
+        <h1>Crear Sección</h1>
       </div>
        <form action="" id='form'>
         <div class='nombrePrecio'>
-           <label for="">Nombre</label>
-           <input type="text" id='nombre'>      
-           <label for="">Precio</label>
-           <input type='number' id='precio'>
-        </div>        
-        <div class='stockRate'>
-          <label for="">Stock</label>
-          <input type="number" id='stock'>
-          <label for="">Rate</label>
-          <input type="number" id='rate'>
-        </div>
-        <div class='categoriaCheckbox'>
-          <label for="">Categoria</label>
-          <input class='categoria' type="text" id='categoria'>
-          <div class='checkbox'>
-            <label for="">Descuento </label>
-            <input type="checkbox" id='descuento' >
-            <label for="">Novedad </label>
-            <input type="checkbox" id='novedad' >         
-          </div>
-        </div>
-        <label for="">Descripcion</label>
-        <textarea type="textarea" id='descripcion' rows="5" cols="70"></textarea>
-        <label for="">Descritpion corta</label>
-        <input type="text" id='descritpionCorta'>
-        <img id='img-id'>
-        <div class='image'>
-            
-          <input type="file" id="file" name="img" accept="image/*">
-          <label for="file">
-            <img src="../Img/dashboard/upload.png" alt="">
-            <p>Seleccione una imagen</p>
-          </label>
-                   
-        </div>
-              
+           <label for="">Título</label>
+           <input type="text" id='titulo'>      
+           <label for="">Categoría</label>
+           <input type='text' id='categoria'>          
+        </div>   
+      
+        
         <button type='submit' id='btn'>
-          Editar
+          Crear
         </button>       
       </form>
     </div>
@@ -102,7 +76,8 @@
       <img src="/Img/markIcon.png" alt="markicon">
       <p id='alert_msg'></p>
     </div>
+  </div>
   </div> 
-  <script src="./updateproduct.js"></script>
+  <script src="./createsection.js"></script>
 </body>
 </html>

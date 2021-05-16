@@ -12,6 +12,7 @@ function loadingFinish() {
 }
 
 async function getSections(){
+  localStorage.removeItem('productos-sections')
   loadingStart()
   try {
     const response = await fetch('http://localhost:1337/sections')
@@ -22,10 +23,22 @@ async function getSections(){
     return error;
   }
 }
-
+async function deleteSection(id){  
+  localStorage.removeItem('productos-section')
+  loadingStart()  
+  try {
+    const response = await fetch(`http://localhost:1337/products/${id}`,{
+      method:'DELETE'
+    });    
+    return response.json();
+  } catch (error) {
+    console.log(error)    
+    return error;
+  }
+}
 function handleEdit(id){
   localStorage.setItem('current-id', JSON.stringify(id))
-  window.location.href="dashboard/updateproduct.html"
+  window.location.href="/dashboard/updatesection.html"
 }
 
 function openModal(id){
@@ -52,7 +65,7 @@ function alert(){
 }
 
 function renderTable(sections){
- 
+  console.log(sections)
   localStorage.setItem('productos-sections', JSON.stringify(sections))
   let tbodyElement=document.getElementById('tbody')
   
@@ -63,8 +76,8 @@ function renderTable(sections){
     trElement.id=section.id
     trElement.innerHTML=`
     <th scope="row">${index +1}</th>
-    <td >${section.Titulo}</td>
-    <td>${section.Categoria}</td>
+    <td >${section.titulo}</td>
+    <td>${section.categoria}</td>
    
     <td> 
       <div class='icons_container'>
@@ -80,4 +93,8 @@ function renderTable(sections){
 
 
 getSections().then((r)=>renderTable(r)).then(()=> loadingFinish())
-
+const closeBtn=document.querySelector('.close').onclick=()=>closeModal()
+const noBtn=document.getElementById('noBtn').onclick=()=>closeModal()
+const myModal=document.getElementById('myModal').onclick=()=>closeModal()
+const deleteBtn=document.getElementById('siBtn').onclick=()=>handleDelete()
+const span = document.getElementsByClassName("close")[0].onclick=()=>closeModal()
