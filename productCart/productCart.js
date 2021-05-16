@@ -5,8 +5,8 @@ let cartDetailElement=document.getElementById('cart_detail')
 let mainContainerELement=document.getElementById('main_container')
 let cartDetailQuantity=document.getElementById('cart_detail_quantity')
 let cartDetailTotal=document.getElementById('cart_detail_total')
-
 let cartQuantityElement=document.getElementById('cart_quantity')
+let comprarBtnElement=document.getElementById('comprar_btn')
 
 function updateCartQuantity(){
   const cartStorage= localStorage.getItem('cart')? JSON.parse(localStorage.getItem('cart')): []
@@ -96,4 +96,4 @@ function getCartDetail(){
     cartDetailTotal.innerHTML=`Total: $${totalPrice}`
 }
 document.addEventListener('DOMContentLoaded', createShoppingCart(cartStorage), getCartDetail())
-
+comprarBtnElement.addEventListener('click', ()=>console.log('comprado lince'))

@@ -74,6 +74,7 @@
   color: azure;
   letter-spacing: 3px;
   font-size: 18px;
+  cursor: pointer;
 }
 .cart_empty{
   display:none;

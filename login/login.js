@@ -8,9 +8,9 @@ submitBtn.disabled=true
 const email=document.getElementById('email')
 const password=document.getElementById('password')
 
-function setUserStorage(username){
+function setUserStorage(data){
   localStorage.removeItem('user')
-  const user={username , isLoggedIn: true}
+  const user={username: data.user.username , isLoggedIn: true, token:data.jwt}
   localStorage.setItem('user', JSON.stringify(user))
 }
 
@@ -71,7 +71,8 @@ formElement.addEventListener('submit', (e)=>{
       emailError.style.visibility='visible'
       emailError.innerHTML='Credenciales Invalidas'
     }else{
-      setUserStorage(r.user.username)
+      
+      setUserStorage(r)
       window.location.href="index.html"
     }
   }) 
