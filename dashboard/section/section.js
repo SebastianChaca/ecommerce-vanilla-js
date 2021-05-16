@@ -27,7 +27,7 @@ async function deleteSection(id){
   localStorage.removeItem('productos-section')
   loadingStart()  
   try {
-    const response = await fetch(`http://localhost:1337/products/${id}`,{
+    const response = await fetch(`http://localhost:1337/sections/${id}`,{
       method:'DELETE'
     });    
     return response.json();
@@ -63,7 +63,16 @@ function alert(){
 
   },3000)
 }
-
+function handleDelete(){
+  const id= JSON.parse(localStorage.getItem('current-id')) 
+  localStorage.removeItem('productos-api')
+  deleteSection(id).then( ()=> {
+    let tbodyElement=document.getElementById('tbody')
+    tbodyElement.innerHTML=''
+    // loadingFinish()
+    // let trElement=document.getElementById(r.id).remove()
+  }).then(()=>getSections()).then(r=> renderTable(r)).then(()=>loadingFinish()).then(alert())
+}
 function renderTable(sections){
   console.log(sections)
   localStorage.setItem('productos-sections', JSON.stringify(sections))

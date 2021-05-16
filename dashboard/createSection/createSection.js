@@ -56,19 +56,19 @@ async function createSection(data){
 };
 const productsStorage=JSON.parse(localStorage.getItem('productos-api'))
  const tituloElement= document.getElementById('titulo')
- const categoriaElement=document.getElementById('categoria')
 
+ const categoriasSelect= document.getElementById('categorias')
 
  document.querySelector('#form').addEventListener('submit', (e)=>{
  
   e.preventDefault()
   const section={
     titulo:tituloElement.value,
-    categoria:categoriaElement.value
+    categoria:categoriasSelect.value
   }
   createSection(section).then(()=> stopLoading()).then(()=>{
     tituloElement.value=''
-    categoriaElement.value=''
+    
 
   })
   
@@ -77,7 +77,7 @@ const productsStorage=JSON.parse(localStorage.getItem('productos-api'))
 
 document.addEventListener('DOMContentLoaded', ()=>{
   const options=getOptions(productsStorage)
-  const categoriasSelect= document.getElementById('categorias')
+  
 
   options.map(option=>{
    const selectElement=document.createElement('option')
