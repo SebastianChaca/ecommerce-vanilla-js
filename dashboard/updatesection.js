@@ -45,13 +45,23 @@ async function updateSection(data){
    console.log(error)
   }
  }
+ const getOptions = (data) => {
+  const options = data.map(cat => {
+      return cat.categoria;
+    } 
+  );
+  const uniqueOptions = Array.from(new Set(options));
+  uniqueOptions.push('descuento')
+  return uniqueOptions;
+};
+ const productsStorage=JSON.parse(localStorage.getItem('productos-api'))
  const sectionsStorage= JSON.parse(localStorage.getItem('productos-sections'))
  const selectedId=JSON.parse(localStorage.getItem('current-id'))
  const selectedSection= sectionsStorage.find( section => section.id === selectedId)
  const tituloElement= document.getElementById('titulo')
  tituloElement.value=selectedSection.titulo
- const categoriaElement=document.getElementById('categoria')
- categoriaElement.value=selectedSection.categoria
+//  const categoriaElement=document.getElementById('categoria')
+//  categoriaElement.value=selectedSection.categoria
 
 
  document.querySelector('#form').addEventListener('submit', (e)=>{
@@ -67,5 +77,18 @@ async function updateSection(data){
 
   })
   
+
+})
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  const options=getOptions(productsStorage)
+  const categoriasSelect= document.getElementById('categorias')
+
+  options.map(option=>{
+   const selectElement=document.createElement('option')
+   selectElement.value=option
+   selectElement.innerHTML=option
+   categoriasSelect.appendChild(selectElement)
+  })
 
 })

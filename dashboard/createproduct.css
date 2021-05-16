@@ -203,3 +203,11 @@
   min-height: 200px;
   object-fit: cover;
 }
+
+select{
+  border: 1px solid rgb(227, 233, 243);
+  height: 29px;
+  border-radius: 2px;
+  padding-left: 5px;
+  
+}

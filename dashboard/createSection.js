@@ -45,7 +45,16 @@ async function createSection(data){
    console.log(error)
   }
  }
-
+ const getOptions = (data) => {
+  const options = data.map(cat => {
+      return cat.categoria;
+    } 
+  );
+  const uniqueOptions = Array.from(new Set(options));
+  uniqueOptions.push('descuento')
+  return uniqueOptions;
+};
+const productsStorage=JSON.parse(localStorage.getItem('productos-api'))
  const tituloElement= document.getElementById('titulo')
  const categoriaElement=document.getElementById('categoria')
 
@@ -63,5 +72,18 @@ async function createSection(data){
 
   })
   
+
+})
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  const options=getOptions(productsStorage)
+  const categoriasSelect= document.getElementById('categorias')
+
+  options.map(option=>{
+   const selectElement=document.createElement('option')
+   selectElement.value=option
+   selectElement.innerHTML=option
+   categoriasSelect.appendChild(selectElement)
+  })
 
 })
