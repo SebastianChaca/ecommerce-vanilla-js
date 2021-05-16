@@ -107,7 +107,7 @@ async function getProducts() {
   loadingStart();
   localStorage.removeItem('productos-api') 
   try {
-    const response = await fetch('http://localhost:1337/products');
+    const response = await fetch('https://api-nucba.herokuapp.com/products');
     const res= await response.json()
     localStorage.setItem('productos-api', JSON.stringify(res))  
     return res
@@ -119,7 +119,7 @@ async function getProducts() {
 }
 async function getSections(){
   try {
-    const response = await fetch('http://localhost:1337/sections')
+    const response = await fetch('https://api-nucba.herokuapp.com/sections')
     return response.json();
   } catch (error) {
     loadingFinish();

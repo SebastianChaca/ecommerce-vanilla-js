@@ -33,7 +33,7 @@ async function updateProduct(data){
  
   
  try {
-  const response = await fetch(`http://localhost:1337/products/${selectedId}`,{
+  const response = await fetch(`https://api-nucba.herokuapp.com/products/${selectedId}`,{
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json'

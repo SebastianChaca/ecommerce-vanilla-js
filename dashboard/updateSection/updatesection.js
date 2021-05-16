@@ -30,7 +30,7 @@ function stopLoading(){
 async function updateSection(data){
   starLoading()
   try {
-   const response = await fetch(`http://localhost:1337/sections/${selectedId}`,{
+   const response = await fetch(`https://api-nucba.herokuapp.com/sections/${selectedId}`,{
      method: 'PUT',
      headers: {
        'Content-Type': 'application/json'

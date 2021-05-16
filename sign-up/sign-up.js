@@ -31,7 +31,7 @@ function starLoading(){
 async function signUp(username, email, password){
   starLoading()
   try {
-    const response = await fetch('http://localhost:1337/auth/local/register',{
+    const response = await fetch('https://api-nucba.herokuapp.com/auth/local/register',{
       method:'POST',
       body: JSON.stringify({
         username,

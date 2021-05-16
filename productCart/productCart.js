@@ -144,7 +144,7 @@ const updateStock=(cart) => {
     
     let Stock= parseInt(product.stock) - product.quantity
     console.log(product)
-      const response =await fetch(`http://localhost:1337/products/${product.id}`,{
+      const response =await fetch(`https://api-nucba.herokuapp.com/products/${product.id}`,{
         method:'PUT',
         body:JSON.stringify({stock: Stock}),
         headers: {
@@ -157,7 +157,7 @@ const updateStock=(cart) => {
 async function createOrder(items, total, token){
   starLoading()
   try {
-    const response = await fetch('http://localhost:1337/orders',{
+    const response = await fetch('https://api-nucba.herokuapp.com/orders',{
       method:'POST',
       headers:{
         Authorization: `Bearer ${token}`

@@ -31,7 +31,7 @@ function stopLoading(){
 async function createProduct(data){
     
  try {
-  const response = await fetch('http://localhost:1337/products',{
+  const response = await fetch('https://api-nucba.herokuapp.com/products',{
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'

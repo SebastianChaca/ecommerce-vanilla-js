@@ -15,7 +15,7 @@ async function getProducts() {
   localStorage.removeItem('productos-api') 
   loadingStart();
   try {
-    const response = await fetch('http://localhost:1337/products');    
+    const response = await fetch('https://api-nucba.herokuapp.com/products');    
     return response.json();
   } catch (error) {
     console.log(error)    
@@ -54,7 +54,7 @@ async function deleteProduct(id){
   localStorage.removeItem('productos-api')
   loadingStart()  
   try {
-    const response = await fetch(`http://localhost:1337/products/${id}`,{
+    const response = await fetch(`https://api-nucba.herokuapp.com/products/${id}`,{
       method:'DELETE'
     });    
     return response.json();

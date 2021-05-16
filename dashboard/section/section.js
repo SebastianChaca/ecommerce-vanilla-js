@@ -15,7 +15,7 @@ async function getSections(){
   localStorage.removeItem('productos-sections')
   loadingStart()
   try {
-    const response = await fetch('http://localhost:1337/sections')
+    const response = await fetch('https://api-nucba.herokuapp.com/sections')
     return response.json();
   } catch (error) {
     loadingFinish();
@@ -27,7 +27,7 @@ async function deleteSection(id){
   localStorage.removeItem('productos-section')
   loadingStart()  
   try {
-    const response = await fetch(`http://localhost:1337/sections/${id}`,{
+    const response = await fetch(`https://api-nucba.herokuapp.com/sections/${id}`,{
       method:'DELETE'
     });    
     return response.json();
