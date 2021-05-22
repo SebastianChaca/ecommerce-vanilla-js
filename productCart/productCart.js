@@ -125,8 +125,7 @@ function getCartDetail(){
 }
 function cleanCart(cart){
   const items= cart.map( cart =>{
-    delete cart.image
-    delete cart.imageFromDash
+  
     delete cart.shortDescription
     delete cart.description    
     delete cart.rate
