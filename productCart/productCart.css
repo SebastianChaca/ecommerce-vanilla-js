@@ -96,10 +96,34 @@
 }
 .compra_exitosa{
   text-align: center;
-  margin-top: 100px;
-  margin-bottom: 150px;
-  height: 200px;
+  margin-top: 100px;  
+
 }
+.regresar{
+  text-align: center;
+  padding: 20px;
+  
+  margin-bottom: 10px;
+  
+}
+.regresar button{
+  border: none;
+  background-color: black;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 20px;
+ 
+}
+.regresar button:hover{
+  background-color: #5f072f;
+  
+}
+.regresar a {
+  text-decoration: none; 
+  cursor: pointer;
+  color: white;
+}
+
 
 @media (max-width: 800px){
   .main_container{

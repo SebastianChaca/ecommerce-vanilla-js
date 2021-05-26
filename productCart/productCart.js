@@ -124,8 +124,7 @@ function getCartDetail(){
     cartDetailTotal.innerHTML=`Total: $${ getCartTotalPrice(cartStorage)}`
 }
 function cleanCart(cart){
-  const items= cart.map( cart =>{  
-    delete cart.shortDescription
+  const items= cart.map( cart =>{     
     delete cart.description    
     delete cart.rate
     delete cart.novedad
@@ -171,6 +170,7 @@ function orderInStorage(cart){
   localStorage.removeItem('product-order')
   localStorage.setItem('product-order', JSON.stringify(cart))
 }
+
 document.addEventListener('DOMContentLoaded', createShoppingCart(cartStorage), getCartDetail())
 comprarBtnElement.addEventListener('click', ()=>{
   const items= cleanCart(cartStorage)
