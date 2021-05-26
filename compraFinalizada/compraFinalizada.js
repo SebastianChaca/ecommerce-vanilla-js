@@ -1,6 +1,17 @@
 const order = localStorage.getItem('product-order') ? JSON.parse(localStorage.getItem('product-order')) : []
 let productMainContainer=document.getElementById('cart_main_container_order')
 let compraFinalizadaElement=document.getElementById('compra_exitosa')
+let totalElement=document.getElementById('total_order')
+
+function getTotal(cart){
+  let totalPrice=0
+  cart.forEach(prod =>{      
+      totalPrice= prod.descuento ? totalPrice + prod.price * prod.quantity * 0.8 : totalPrice + prod.price * prod.quantity
+  })
+  return totalPrice
+}
+
+
 function createOrder(data){
   let cartContainer=document.createElement('div')
   cartContainer.className='cart_container'
@@ -34,7 +45,7 @@ function createOrderList(data){
    data.forEach(product =>{
      createOrder(product)
    })
-
+  totalElement.innerText=`Total: $${getTotal(order)}`
  }else{
    compraFinalizadaElement.innerHTML='Se produjo un error'
  }
