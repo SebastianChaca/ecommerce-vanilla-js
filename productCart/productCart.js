@@ -124,8 +124,7 @@ function getCartDetail(){
     cartDetailTotal.innerHTML=`Total: $${ getCartTotalPrice(cartStorage)}`
 }
 function cleanCart(cart){
-  const items= cart.map( cart =>{
-  
+  const items= cart.map( cart =>{  
     delete cart.shortDescription
     delete cart.description    
     delete cart.rate
@@ -168,6 +167,10 @@ async function createOrder(items, total, token){
     console.log(error)
   }
 }
+function orderInStorage(cart){
+  localStorage.removeItem('product-order')
+  localStorage.setItem('product-order', JSON.stringify(cart))
+}
 document.addEventListener('DOMContentLoaded', createShoppingCart(cartStorage), getCartDetail())
 comprarBtnElement.addEventListener('click', ()=>{
   const items= cleanCart(cartStorage)
@@ -175,8 +178,9 @@ comprarBtnElement.addEventListener('click', ()=>{
  
   createOrder(items, total, userStorage.token)
     .then(()=>updateStock(cartStorage))
-    .then(()=>stopLoading())
+    .then(()=>orderInStorage(cartStorage))
     .then(()=> clearCart())
+    .then(()=>stopLoading())
     .then(()=> window.location.href='/comprafinalizada.html')
   
 })
