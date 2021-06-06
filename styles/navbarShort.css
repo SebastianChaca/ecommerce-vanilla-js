@@ -4,31 +4,22 @@
   background-image: url(/Img/wallpapper.jpg);
   padding-top: 0px;
   position: relative;
-  
-  
+  clip-path: polygon(0 0, 100% 0, 100% 55%, 0 90%);  
 }
 .logo__container {
   height: 200px;
   width: 250px;
   margin: 0px auto;
+  
  
 }
 .logo__container img {
   height: 100%;
   width: 100%;
   border-radius: 20px;
+  
 }
-.nav__container::after {
-  content: '';
-  pointer-events: none;
-  background: #efefef;
-  position: absolute;
-  width: 100%;
-  height: 90px;
-  left: 0px;
-  bottom: -45px;
-  transform: skewY(-3deg);
-}
+
 .navbar__content {
  
   width: 100%;
@@ -66,7 +57,7 @@ a::before {
   width: 1px;
   position: absolute;
   right: 0;
-  top: 30px;
+  top: 40px;
   background-color: #fcf8f494;
 }
 .pseudo {
@@ -195,5 +186,10 @@ a::before {
     height: 60px;
   }
  
+}
+
+
+@media screen and (min-width: 1920px){
+  
 }
 

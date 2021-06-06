@@ -73,3 +73,9 @@
     height: 500px;
   }
 }
+
+@media screen and (min-width: 1920px){
+  .map{
+    margin: auto;
+  }
+}

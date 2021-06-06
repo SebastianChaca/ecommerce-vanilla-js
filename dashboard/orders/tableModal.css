@@ -88,3 +88,10 @@
   text-decoration: none;
   cursor: pointer;
 }
+
+
+@media screen and (min-width: 1920px){
+  .modal-content{
+    width: 30%;
+  }
+}

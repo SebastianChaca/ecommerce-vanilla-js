@@ -120,3 +120,35 @@
   }
   
 }
+
+@media screen and (min-width: 1920px){
+  .main_container{
+    margin-bottom: 10rem;
+  }
+  .cart_detail{
+    width: 350px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    
+  }
+  .cart_detail h4{
+    margin: 15px
+  }
+  .cart_detail button{
+    margin: 20px auto;    
+  }
+  .cart_container{
+    height: 90px;  
+    grid-template-columns: 150px 350px 130px 150px 100px;    
+  }
+  .cart_image img{
+    width: 110%;
+    height: 110%;
+  }
+  .cart_empty{
+    
+    margin-bottom: 20rem;
+    
+  }
+}

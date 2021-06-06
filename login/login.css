@@ -96,3 +96,18 @@ form .btn:active {
   width: 20px;
   margin-top: 5px;
 }
+
+
+@media screen and (min-width: 1920px){
+  .container__login{    
+    width: 600px;
+    height: 390px;
+       
+  }
+  input{
+    width: 80%;
+  }
+  form .btn{
+    width: 80%;
+  }
+}

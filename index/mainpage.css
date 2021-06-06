@@ -1,10 +1,10 @@
 .nav__container {
   height: 800px;
-  /* background-image: url(/Img/banner2.png); */
-  background-image: url(/Img/wallpapper.jpg);
+  width: 100%;  
+  background-image: url(/Img/wallpapper.jpg);  
   padding-top: 0px;
   position: relative; 
-  
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);   
 }
 .logo__container {
   height: 200px;
@@ -17,17 +17,7 @@
   width: 100%;
   border-radius: 20px;
 }
-.nav__container::after {
-  content: '';
-  pointer-events: none;
-  background: #efefef;
-  position: absolute;
-  width: 100%;
-  height: 80px;
-  left: 0px;
-  bottom: -45px;
-  transform: skewY(-3deg);
-}
+
 .navbar__content { 
   width: 100%;
   height: 80px;
@@ -36,6 +26,7 @@
   position: relative;
   align-items: center;
   background-color: rgba(255, 255, 255, 0.253);
+ 
 }
 
 .navbar__content > img:first-of-type {
@@ -581,5 +572,25 @@ p {
     display: block;
     width: 300px;
   }
+  
+}
+
+@media screen and (min-width: 1920px){
+  .nav__container {
+    height:1100px;    
+    background-size: cover;   
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);  
+    
+  }
+  .content{
+    width: 95%;
+    height: 570px;
+    padding-top: 20px;
+  }
+  .content > img:first-of-type{
+    height: 230px;
+  }
+ 
+  
 }
 
