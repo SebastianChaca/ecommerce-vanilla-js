@@ -144,3 +144,12 @@
   margin-right: 10px;
   margin-left: 20px;
 }
+
+@media screen and (min-width: 1920px){
+  .table_container{   
+    margin-left:  450px;    
+  }
+  .table{     
+    width: 1200px;
+  }
+}

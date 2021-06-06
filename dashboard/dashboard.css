@@ -147,13 +147,10 @@
 }
 
 @media screen and (min-width: 1920px){
-  .table_container{  
-   
-    margin-left:  450px;
-    
+  .table_container{   
+    margin-left:  450px;    
   }
-  .table{  
-    
+  .table{     
     width: 1200px;
   }
 }

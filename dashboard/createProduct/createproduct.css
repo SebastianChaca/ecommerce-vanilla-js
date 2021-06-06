@@ -74,6 +74,7 @@
   display: flex;
   justify-content: center;
   margin-bottom: 15px;
+ 
 }
 .nombrePrecio input{
   margin-left: 10px;
@@ -92,11 +93,11 @@
 .stockRate input{
   margin-left: 10px;
   margin-right: 10px;
-  width: 220px;
+  width: 225px;
 }
 .stockRate label{
   margin-left: 5px;
-  margin-right: 15px;
+  margin-right: 13px;
  
 }
 
@@ -107,10 +108,13 @@
 .categoriaCheckbox label{
   margin-right: 10px;
 }
-.categoriaCheckbox input {
+.categoria {
+  width: 211px;
+}
+/* .categoriaCheckbox input {
   width: 211px;
   
-}
+} */
 .checkbox {
   display: flex;
   margin:0 0 0 0px;
@@ -210,4 +214,19 @@ select{
   border-radius: 2px;
   padding-left: 5px;
   
+}
+
+@media screen and (min-width: 1920px){
+  .form_container{
+    width: 900px;  
+    
+  }
+  .nombrePrecio input , .stockRate input {
+    
+    width: 100%;
+  }
+  .categoria {
+    width: 360px;
+  }
+
 }
