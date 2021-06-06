@@ -2,7 +2,7 @@
 
 .table_container{  
   margin: 40px auto; 
-  margin-left:  330px;
+  margin-left:  300px;
   
 }
 .table{  
@@ -10,7 +10,6 @@
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   border-spacing:0 ;
   border-radius: 5px;
-  width: 1200px;
 }
 .table thead{
   background-color: rgb(194, 203, 233);
@@ -144,16 +143,4 @@
   height: 30px;
   margin-right: 10px;
   margin-left: 20px;
-}
-
-@media screen and (min-width: 1920px){
-  .table_container{  
-   
-    margin-left:  450px;
-    
-  }
-  .table{  
-    
-    width: 1200px;
-  }
 }

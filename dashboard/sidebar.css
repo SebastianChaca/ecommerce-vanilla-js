@@ -1,7 +1,5 @@
 .main_container{
-  display: flex;
-  
-  
+  display: flex;  
 }
 
 .sidebar {
@@ -13,7 +11,7 @@
   height: 100%;
   background-color: #282c44;  
   min-width: 250px;
-  margin-right: 20px;
+  
   color:#fffefe ;
   text-align: left;
   padding: 15px 0 0 5px;
