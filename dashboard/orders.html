@@ -9,8 +9,9 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,500;1,100;1,300&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" type="image/png" sizes="32x32" href="./Img/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/Img/favicon-32x32.png">
     <link rel="stylesheet" href="./orders/orders.css">
+    <link rel="stylesheet" href="./orders/tableModal.css">
     <link rel="stylesheet" href="./sidebar.css">
   <title>Dashboard</title>
 </head>
@@ -50,7 +51,7 @@
       </ul>
     </div>
     <div class='noLoading' id="loading">
-      <img src="./Img/dashboard/loading.gif" alt="">
+      <img src="/Img/dashboard/loading.gif" alt="">
     </div>
    <div class='table_container'>
      
@@ -60,6 +61,8 @@
           <th scope="col">#</th>
           <th scope="col">Usuario</th>
           <th scope="col">Compra</th>
+          <th scope="col">Fecha de Compra</th>
+          <th scope="col">Total</th>
               
         </tr>
       </thead>
@@ -72,18 +75,29 @@
   <div id="myModal" class="modal">   
    <div class="modal-content">
      <span class="close">&times;</span>
-     <p>¿ Eliminar producto ?</p>
+     <p>Productos:</p>
+     <table class="table-modal" id='table-modal'>
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Item</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Cantidad</th>
+          <th scope="col">Total</th>                
+        </tr>
+      </thead>
+      <tbody id='tbody-modal'>
+       
+      </tbody>
+    </table>
      <hr>
-     <button id='siBtn'>Si</button>
-     <button id='noBtn'>No</button>
+    
+     <button id='noBtn'>Cerrar</button>
    </div>
    
   </div> 
-  <div class='alert' id='alert'>
-    <img src="/Img/markIcon.png" alt="markicon">
-    <p id='alert_msg'></p>
-  </div>
+ 
   
-  <script ></script>
+  <script src='orders/orders.js'></script>
 </body>
 </html>
